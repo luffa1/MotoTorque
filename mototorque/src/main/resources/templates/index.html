@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>MotoTorque</title>
+    <style>
+        body {
+            background: #111;
+            color: #eee;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .picker-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .picker {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            width: 320px;
+            position: relative;
+        }
+        .picker-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #a07b49;
+            color: #a07b49;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .picker-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+        .input-with-list {
+            position: relative;
+        }
+        .input-with-list input {
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px 14px;
+            background: #151515;
+            color: #fff;
+        }
+        .suggestion-list {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: calc(100% + 4px);
+            background: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            max-height: 220px;
+            overflow-y: auto;
+            display: none;
+            z-index: 5;
+        }
+        .suggestion-list.visible {
+            display: block;
+        }
+        .suggestion-item {
+            padding: 10px 14px;
+            border-bottom: 1px solid #2b2b2b;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background: #2c2c2c;
+        }
+        .suggestion-empty {
+            color: #aaa;
+            cursor: default;
+        }
+        .hidden {
+            display: none;
+        }
+        .torque-search {
+            margin-top: 40px;
+        }
+        .torque-result {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 10px;
+            background: #181818;
+            border: 1px solid #333;
+        }
+        .torque-result .torque-part {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .torque-result .torque-value {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .torque-result .torque-notes,
+        .torque-result .torque-source {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .torque-error {
+            margin-top: 12px;
+            color: #f88;
+        }
+
+        .maintenance-list {
+            margin-top: 16px;
+            background: #181818;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .maintenance-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #2b2b2b;
+        }
+        .maintenance-item:last-child {
+            border-bottom: none;
+        }
+        .maintenance-category {
+            font-weight: 600;
+            color: #a07b49;
+        }
+    </style>
+</head>
+<body>
+<h1>MotoTorque</h1>
+
+<div class="picker-row">
+
+    <div class="picker" id="brandWrapper">
+        <div class="picker-number">1</div>
+        <div class="picker-label">Wybierz markę</div>
+        <div class="input-with-list">
+            <input type="text" id="brandInput" placeholder="np. BMW" oninput="handleInput('brand')" autocomplete="off">
+            <div id="brandSuggestions" class="suggestion-list"></div>
+        </div>
+    </div>
+
+    <div class="picker" id="modelWrapper">
+        <div class="picker-number">2</div>
+        <div class="picker-label">Wybierz model</div>
+        <div class="input-with-list">
+            <input type="text" id="modelInput" placeholder="najpierw wybierz markę" oninput="handleInput('model')" autocomplete="off">
+            <div id="modelSuggestions" class="suggestion-list"></div>
+        </div>
+    </div>
+
+    <div class="picker" id="yearWrapper">
+        <div class="picker-number">3</div>
+        <div class="picker-label">Wybierz rocznik</div>
+        <div class="input-with-list">
+            <input type="text" id="yearInput"
+                   placeholder="najpierw wybierz model"
+                   readonly
+                   onclick="openYearList()">
+            <div id="yearSuggestions" class="suggestion-list"></div>
+        </div>
+    </div>
+</div>
+
+<section class="torque-search">
+    <h2>Znajdź moment dokręcania</h2>
+    <input type="text" id="torqueQuery" placeholder="np. nóżka, zacisk, kierownica">
+    <button type="button" onclick="searchTorque()">Szukaj</button>
+
+    <div id="torqueResult" class="torque-result hidden">
+        <div class="torque-part"></div>
+        <div class="torque-value"></div>
+        <div class="torque-notes"></div>
+        <div class="torque-source"></div>
+    </div>
+
+    <div id="torqueError" class="torque-error hidden"></div>
+</section>
+
+<section class="maintenance">
+    <h2>Parametry eksploatacyjne</h2>
+    <button type="button" onclick="loadMaintenance()">Pokaż</button>
+
+    <div id="maintenanceError" class="torque-error hidden"></div>
+
+    <div id="maintenanceList" class="maintenance-list hidden">
+        <!-- tu wstawimy listę -->
+    </div>
+</section>
+
+<script>
+    const brandInput = document.getElementById('brandInput');
+    const modelInput = document.getElementById('modelInput');
+    const yearInput  = document.getElementById('yearInput');
+
+    let currentBrand = null;
+    let currentModel = null;
+
+    const timers = {
+        brand: null,
+        model: null
+    };
+
+    function handleInput(type) {
+        const input = getInput(type);
+        const value = input.value.trim();
+
+        clearTimeout(timers[type]);
+
+        if (value.length < 1) {
+            hideSuggestions(type);
+            return;
+        }
+
+        timers[type] = setTimeout(() => loadSuggestions(type, value), 200);
+    }
+
+    async function loadSuggestions(type, query) {
+        let url;
+
+        if (type === 'brand') {
+            url = `/api/motorcycles/brands?query=${encodeURIComponent(query)}`;
+        } else if (type === 'model') {
+            if (!currentBrand) {
+                showMessage(type, 'Najpierw wybierz markę');
+                return;
+            }
+            url = `/api/motorcycles/models?brand=${encodeURIComponent(currentBrand)}&query=${encodeURIComponent(query)}`;
+        } else {
+            return;
+        }
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(response.status);
+            const data = await response.json();
+            renderSuggestions(type, data);
+        } catch (error) {
+            console.error(`Błąd ${type}:`, error);
+            showMessage(type, 'Błąd połączenia');
+        }
+    }
+
+    function renderSuggestions(type, items) {
+        const container = getSuggestions(type);
+        container.innerHTML = '';
+
+        if (!items || items.length === 0) {
+            showMessage(type, 'Brak wyników');
+            return;
+        }
+
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'suggestion-item';
+            div.textContent = item;
+            div.onclick = () => selectValue(type, item);
+            container.appendChild(div);
+        });
+
+        container.classList.add('visible');
+    }
+
+    function selectValue(type, value) {
+        const input = getInput(type);
+        input.value = value;
+
+        if (type === 'brand') {
+            currentBrand = value;
+            currentModel = null;
+            modelInput.value = '';
+            yearInput.value = '';
+            modelInput.placeholder = 'np. F800';
+            yearInput.placeholder = 'najpierw wybierz model';
+            hideSuggestions('model');
+            hideSuggestions('year');
+        } else if (type === 'model') {
+            currentModel = value;
+            yearInput.value = '';
+            yearInput.placeholder = 'kliknij, aby wybrać rok';
+            hideSuggestions('model');
+            hideSuggestions('year');
+            loadYears();
+        }
+        hideSuggestions(type);
+    }
+
+    async function loadYears() {
+        const container = getSuggestions('year');
+        container.innerHTML = '';
+
+        if (!currentBrand || !currentModel) {
+            showMessage('year', 'Najpierw wybierz model');
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/motorcycles/years?brand=${encodeURIComponent(currentBrand)}&model=${encodeURIComponent(currentModel)}`);
+            if (!response.ok) throw new Error(response.status);
+            const years = await response.json();
+
+            if (!years || !years.length) {
+                showMessage('year', 'Brak danych roczników');
+                return;
+            }
+
+            years.forEach(year => {
+                const div = document.createElement('div');
+                div.className = 'suggestion-item';
+                div.textContent = year;
+                div.onclick = () => selectYear(year);
+                container.appendChild(div);
+            });
+
+            container.classList.add('visible');
+        } catch (error) {
+            console.error('Błąd roczników:', error);
+            showMessage('year', 'Błąd połączenia');
+        }
+    }
+
+    function openYearList() {
+        if (!currentBrand || !currentModel) {
+            alert("Najpierw wybierz markę i model");
+            return;
+        }
+        const container = getSuggestions('year');
+        if (!container.innerHTML.trim()) {
+            loadYears();
+        } else {
+            container.classList.add('visible');
+        }
+    }
+
+    function selectYear(year) {
+        yearInput.value = year;
+        hideSuggestions('year');
+    }
+
+    function showMessage(type, text) {
+        const container = getSuggestions(type);
+        container.innerHTML = `<div class="suggestion-item suggestion-empty">${text}</div>`;
+        container.classList.add('visible');
+    }
+
+    function hideSuggestions(type) {
+        getSuggestions(type).classList.remove('visible');
+    }
+
+    function getInput(type) {
+        switch (type) {
+            case 'brand': return brandInput;
+            case 'model': return modelInput;
+            case 'year':  return yearInput;
+        }
+    }
+
+    function getSuggestions(type) {
+        switch (type) {
+            case 'brand': return document.getElementById('brandSuggestions');
+            case 'model': return document.getElementById('modelSuggestions');
+            case 'year':  return document.getElementById('yearSuggestions');
+        }
+    }
+
+    document.addEventListener('click', (event) => {
+        ['brand', 'model', 'year'].forEach(type => {
+            const wrapper = document.getElementById(type + 'Wrapper');
+            if (wrapper && !wrapper.contains(event.target)) {
+                hideSuggestions(type);
+            }
+        });
+    });
+
+    yearInput.addEventListener('click', () => openYearList());
+</script>
+
+<script>
+    async function searchTorque() {
+        const query = document.getElementById('torqueQuery').value.trim();
+        if (!currentBrand || !currentModel || !yearInput.value) {
+            alert("Najpierw wybierz motocykl (marka, model, rok)");
+            return;
+        }
+        if (!query) {
+            alert("Podaj część, której szukasz");
+            return;
+        }
+
+        try {
+            const url = `/api/torque?brand=${encodeURIComponent(currentBrand)}`
+                        + `&model=${encodeURIComponent(currentModel)}`
+                        + `&productionYear=${encodeURIComponent(yearInput.value)}`
+                        + `&query=${encodeURIComponent(query)}`;
+            const res = await fetch(url);
+
+            const resultBox = document.getElementById('torqueResult');
+            const errorBox = document.getElementById('torqueError');
+
+            errorBox.classList.add('hidden');
+
+            if (res.ok) {
+                const data = await res.json();
+                resultBox.querySelector('.torque-part').innerText = data.partName;
+                resultBox.querySelector('.torque-value').innerText = `${data.torqueNm} Nm`;
+                resultBox.querySelector('.torque-notes').innerText = data.notes || '';
+                resultBox.querySelector('.torque-source').innerText = data.source || '';
+                resultBox.classList.remove('hidden');
+            } else {
+                resultBox.classList.add('hidden');
+                errorBox.innerText = "Brak danych – spróbuj innej frazy";
+                errorBox.classList.remove('hidden');
+            }
+        } catch (err) {
+            console.error(err);
+            document.getElementById('torqueResult').classList.add('hidden');
+            const errorBox = document.getElementById('torqueError');
+            errorBox.innerText = "Błąd połączenia";
+            errorBox.classList.remove('hidden');
+        }
+    }
+</script>
+
+<script>
+    async function loadMaintenance() {
+    if (!currentBrand || !currentModel || !yearInput.value) {
+        alert("Najpierw wybierz motocykl (marka, model, rok)");
+        return;
+    }
+
+    const listBox = document.getElementById('maintenanceList');
+    const errorBox = document.getElementById('maintenanceError');
+    listBox.classList.add('hidden');
+    errorBox.classList.add('hidden');
+    listBox.innerHTML = '';
+
+    try {
+        const url = `/api/maintenance?brand=${encodeURIComponent(currentBrand)}`
+            + `&model=${encodeURIComponent(currentModel)}`
+            + `&productionYear=${encodeURIComponent(yearInput.value)}`;
+
+        const res = await fetch(url);
+
+        if (!res.ok) {
+            throw new Error('Brak danych');
+        }
+
+        const data = await res.json();
+
+        if (!data || !data.length) {
+            errorBox.innerText = "Brak danych eksploatacyjnych dla tego motocykla.";
+            errorBox.classList.remove('hidden');
+            return;
+        }
+
+        data.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'maintenance-item';
+
+            const category = document.createElement('div');
+            category.className = 'maintenance-category';
+            category.innerText = item.category || 'Inne';
+
+            const title = document.createElement('div');
+            title.className = 'maintenance-title';
+            title.innerText = item.parameter;
+
+            const value = document.createElement('div');
+            value.className = 'maintenance-value';
+            value.innerText = `${item.value}${item.unit ? ' ' + item.unit : ''}`;
+
+            div.appendChild(category);
+            div.appendChild(title);
+            div.appendChild(value);
+
+            if (item.conditions) {
+                const cond = document.createElement('div');
+                cond.className = 'maintenance-notes';
+                cond.innerText = `Warunki: ${item.conditions}`;
+                div.appendChild(cond);
+            }
+
+            if (item.notes) {
+                const notes = document.createElement('div');
+                notes.className = 'maintenance-notes';
+                notes.innerText = `Uwagi: ${item.notes}`;
+                div.appendChild(notes);
+            }
+
+            listBox.appendChild(div);
+        });
+
+        listBox.classList.remove('hidden');
+    } catch (err) {
+        console.error(err);
+        errorBox.innerText = "Brak danych eksploatacyjnych – spróbuj później.";
+        errorBox.classList.remove('hidden');
+    }
+}
+</script>
+</body>
+</html>
