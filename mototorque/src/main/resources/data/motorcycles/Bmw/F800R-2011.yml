@@ -1,0 +1,233 @@
+brand: "BMW"
+model: "F800R"
+productionYear: 2011
+
+torqueSpecs:
+  - part: "SIDE STAND MOUNTING BOLT"
+    torqueNm: 38
+    note: "Use Loctite 243"
+    source: "BMW F800R Manual (section: Frame)"
+    fastener: "M10×1.25"
+    tool: "Torx T45"
+    treatment: "Loctite 243"
+    location: "Chassis / Side stand"
+    manualPage: 234
+    aliases:
+      - "stopka"
+      - "boczna stopka"
+      - "nóżka"
+      - "side stand bolt"
+
+  - part: "FRONT BRAKE CALIPER TO FORK"
+    torqueNm: 38
+    note: "Tighten both calipers evenly"
+    source: "BMW F800R Manual (section: Front wheel)"
+    fastener: "M10×65"
+    tool: "Torx T50"
+    treatment: null
+    location: "Front wheel / Brake caliper"
+    manualPage: 312
+    aliases:
+      - "zacisk przedni"
+      - "zacisk hamulca przód"
+      - "front brake caliper"
+
+  - part: "FRONT AXLE PINCH BOLT"
+    torqueNm: 19
+    note: "Tighten 6× alternately"
+    source: "BMW F800R Manual (section: Front wheel)"
+    fastener: "M8×35"
+    tool: "Torx T40"
+    treatment: null
+    location: "Front wheel / Axle clamp"
+    manualPage: 313
+    aliases:
+      - "śruba dociskowa osi"
+      - "zacisk osi"
+
+  - part: "FRONT AXLE"
+    torqueNm: 50
+    note: null
+    source: "BMW F800R Manual (section: Front wheel)"
+    fastener: "M20×1.5"
+    tool: "Hex 17 mm"
+    treatment: null
+    location: "Front wheel / Axle"
+    manualPage: 313
+    aliases:
+      - "oś przednia"
+      - "śruba osi przedniej"
+
+  - part: "CHAIN ADJUSTER LOCKNUT"
+    torqueNm: 19
+    note: null
+    source: "BMW F800R Manual (section: Rear wheel)"
+    fastener: "M8"
+    tool: "Hex 13 mm"
+    treatment: null
+    location: "Rear wheel / Chain adjuster"
+    manualPage: 318
+    aliases:
+      - "kontrnakrętka naciągu"
+      - "naciąg łańcucha"
+
+  - part: "REAR AXLE"
+    torqueNm: 100
+    note: null
+    source: "BMW F800R Manual (section: Rear wheel)"
+    fastener: "M16×1.5"
+    tool: "Hex 27 mm"
+    treatment: null
+    location: "Rear wheel / Axle"
+    manualPage: 318
+    aliases:
+      - "oś tylna"
+      - "śruba osi tylnej"
+
+  - part: "MIRROR LOCKNUT"
+    torqueNm: 20
+    note: "Use multi-wax spray"
+    source: "BMW F800R Manual (section: Mirrors)"
+    fastener: "M14×1"
+    tool: "Wrench 17 mm"
+    treatment: null
+    location: "Controls / Mirrors"
+    manualPage: 330
+    aliases:
+      - "kontrnakrętka lusterka"
+      - "mocowanie lusterka"
+
+  - part: "HEADLIGHT BRACKET BOLT"
+    torqueNm: 5
+    note: null
+    source: "BMW F800R Manual (section: Lighting)"
+    fastener: "M6×20"
+    tool: "Torx T30"
+    treatment: null
+    location: "Lighting / Headlight"
+    manualPage: 340
+    aliases:
+      - "śruba reflektora"
+      - "mocowanie lampy"
+
+maintenanceSpecs:
+  - section: "CHAIN"
+    name: "Chain slack"
+    value: "30–40"
+    unit: "mm"
+    note: "Bike on side stand, no load, measure at tightest point"
+    extra: null
+  - section: "CHAIN"
+    name: "Chain wear limit"
+    value: "144.30"
+    unit: "mm"
+    note: "Measure across 9 pins"
+    extra: "Maximum value"
+  - section: "TIRES"
+    name: "Front tire pressure (solo)"
+    value: "2.5"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+  - section: "TIRES"
+    name: "Rear tire pressure (solo / passenger)"
+    value: "2.9"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+  - section: "TIRES"
+    name: "Minimum tread depth"
+    value: "1.6"
+    unit: "mm"
+    note: null
+    extra: null
+  - section: "LIGHTING"
+    name: "Headlight – low / high beam"
+    value: "H7 12V 55W"
+    unit: null
+    note: null
+    extra: null
+  - section: "LIGHTING"
+    name: "Headlight – position"
+    value: "W5W 12V 5W"
+    unit: null
+    note: null
+    extra: null
+  - section: "LIGHTING"
+    name: "Turn signals front / rear"
+    value: "R10W 12V 10W"
+    unit: null
+    note: null
+    extra: null
+  - section: "LIGHTING"
+    name: "Tail/stop lamp"
+    value: "P21/5W 12V"
+    unit: null
+    note: null
+    extra: null
+  - section: "LIGHTING"
+    name: "License-plate light"
+    value: "W5W 12V 5W"
+    unit: null
+    note: null
+    extra: null
+  - section: "ELECTRICAL"
+    name: "Battery type"
+    value: "12 V AGM (maintenance free)"
+    unit: null
+    note: "Connect + first, then –"
+    extra: null
+  - section: "ELECTRICAL"
+    name: "Fuses"
+    value: "5 / 7.5 / 10 / 15 / 20"
+    unit: "A"
+    note: null
+    extra: null
+  - section: "ENGINE_OIL"
+    name: "Specification"
+    value: "API SL, JASO MA2"
+    unit: null
+    note: null
+    extra: null
+  - section: "ENGINE_OIL"
+    name: "Viscosity (recommended)"
+    value: "SAE 15W-50"
+    unit: null
+    note: null
+    extra: null
+  - section: "ENGINE_OIL"
+    name: "Viscosity (alternative)"
+    value: "SAE 10W-40"
+    unit: null
+    note: null
+    extra: null
+  - section: "COOLANT"
+    name: "Type"
+    value: "Ethylene-glycol based, no nitrites/amines/phosphates"
+    unit: null
+    note: "Level between MIN–MAX"
+    extra: null
+  - section: "BRAKE_FLUID"
+    name: "Fluid"
+    value: "DOT 4"
+    unit: null
+    note: "Level between MIN–MAX"
+    extra: null
+  - section: "ADJUSTMENTS"
+    name: "Throttle free play"
+    value: "2–4"
+    unit: "mm"
+    note: null
+    extra: null
+  - section: "ADJUSTMENTS"
+    name: "Clutch lever free play"
+    value: "5–7"
+    unit: "mm"
+    note: null
+    extra: null
+  - section: "SUSPENSION"
+    name: "Rear preload adjustment"
+    value: "-"
+    unit: null
+    note: "Positions only (no torque)"
+    extra: null

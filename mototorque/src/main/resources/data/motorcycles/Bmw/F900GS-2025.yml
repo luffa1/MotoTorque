@@ -1,0 +1,206 @@
+brand: "BMW"
+model: "F900GS ADV"
+productionYear: 2025
+
+torqueSpecs:
+  - part: "FRONT WHEEL SPEED SENSOR BOLT"
+    torqueNm: 8
+    note: "Replace screw (micro-encapsulated)"
+    source: "BMW F900GS ADV Manual"
+    fastener: "M6×16"
+    tool: "Torx T30"
+    treatment: null
+    location: "Front wheel / Sensor"
+    manualPage: 210
+    aliases:
+      - "czujnik ABS przód"
+      - "sensor koła przedniego"
+
+  - part: "FRONT WHEEL COVER BOLT"
+    torqueNm: 3
+    note: "Replace screw (micro-encapsulated)"
+    source: "BMW F900GS ADV Manual"
+    fastener: "M6×16"
+    tool: "Torx T25"
+    treatment: null
+    location: "Front wheel / Cover"
+    manualPage: 211
+    aliases:
+      - "osłona przedniego koła"
+      - "błotnik przedni"
+
+  - part: "FRONT BRAKE CALIPER TO FORK"
+    torqueNm: 38
+    note: null
+    source: "BMW F900GS ADV Manual"
+    fastener: "M10×45"
+    tool: "Torx T50"
+    treatment: null
+    location: "Front wheel / Brake caliper"
+    manualPage: 212
+    aliases:
+      - "zacisk hamulca przód"
+      - "zacisk przedni"
+
+  - part: "FRONT AXLE PINCH BOLT"
+    torqueNm: 19
+    note: "Tighten six times alternately"
+    source: "BMW F900GS ADV Manual"
+    fastener: "M8×35"
+    tool: "Torx T40"
+    treatment: null
+    location: "Front wheel / Axle clamp"
+    manualPage: 212
+    aliases:
+      - "zacisk szybkozłączki"
+      - "szybkozłączka przód"
+
+  - part: "FRONT AXLE"
+    torqueNm: 50
+    note: null
+    source: "BMW F900GS ADV Manual"
+    fastener: "M20×1.5"
+    tool: "Hex 17 mm"
+    treatment: null
+    location: "Front wheel / Axle"
+    manualPage: 213
+    aliases:
+      - "oś przednia"
+      - "śruba osi przedniej"
+
+  - part: "CHAIN ADJUSTER LOCKNUT"
+    torqueNm: 19
+    note: null
+    source: "BMW F900GS ADV Manual"
+    fastener: "M8"
+    tool: "Hex 13 mm"
+    treatment: null
+    location: "Rear wheel / Chain adjuster"
+    manualPage: 318
+    aliases:
+      - "kontrnakrętka naciągu"
+      - "naciąg łańcucha"
+
+  - part: "REAR AXLE"
+    torqueNm: 125
+    note: null
+    source: "BMW F900GS ADV Manual"
+    fastener: "M24×1.5"
+    tool: "Hex 32 mm"
+    treatment: null
+    location: "Rear wheel / Axle"
+    manualPage: 221
+    aliases:
+      - "oś szybkozłączka tył"
+      - "rear quick-release axle"
+
+  - part: "MIRROR LOCKNUT"
+    torqueNm: 22
+    note: "LH thread"
+    source: "BMW F900GS ADV Manual"
+    fastener: "M10×1.25 (LH)"
+    tool: "Wrench 17 mm"
+    treatment: null
+    location: "Controls / Mirrors"
+    manualPage: 250
+    aliases:
+      - "kontrnakrętka lusterka"
+
+  - part: "MIRROR ADAPTER BOLT"
+    torqueNm: 25
+    note: "Class 4.8 bolt"
+    source: "BMW F900GS ADV Manual"
+    fastener: "M10×14"
+    tool: "Wrench 17 mm"
+    treatment: null
+    location: "Controls / Mirrors"
+    manualPage: 250
+    aliases:
+      - "adapter lusterka"
+      - "mocowanie lusterek"
+
+maintenanceSpecs:
+  - section: "TIRES"
+    name: "Front tire pressure (solo)"
+    value: "2.2"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+  - section: "TIRES"
+    name: "Front tire pressure (with load)"
+    value: "2.5"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+  - section: "TIRES"
+    name: "Rear tire pressure (solo)"
+    value: "2.5"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+  - section: "TIRES"
+    name: "Rear tire pressure (with load)"
+    value: "2.9"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+  - section: "CHAIN"
+    name: "Chain slack"
+    value: "30–40"
+    unit: "mm"
+    note: "Bike on side stand, no load, measure at tightest point"
+    extra: null
+  - section: "CHAIN"
+    name: "Chain wear limit"
+    value: "144.30"
+    unit: "mm"
+    note: "Measure across 9 pins"
+    extra: "Maximum value"
+  - section: "LIGHTING"
+    name: "Headlight – low / high beam"
+    value: "H7 12V 55W"
+    unit: null
+    note: null
+    extra: null
+  - section: "ENGINE_OIL"
+    name: "Specification"
+    value: "API SL, JASO MA2"
+    unit: null
+    note: null
+    extra: null
+  - section: "ENGINE_OIL"
+    name: "Viscosity (recommended)"
+    value: "SAE 15W-50"
+    unit: null
+    note: null
+    extra: null
+  - section: "ENGINE_OIL"
+    name: "Viscosity (alternative)"
+    value: "SAE 10W-40"
+    unit: null
+    note: null
+    extra: null
+  - section: "COOLANT"
+    name: "Type"
+    value: "Ethylene-glycol based, no nitrites/amines/phosphates"
+    unit: null
+    note: "Level between MIN–MAX"
+    extra: null
+  - section: "BRAKE_FLUID"
+    name: "Fluid"
+    value: "DOT 4"
+    unit: null
+    note: "Level between MIN–MAX"
+    extra: null
+  - section: "ADJUSTMENTS"
+    name: "Throttle free play"
+    value: "2–4"
+    unit: "mm"
+    note: null
+    extra: null
+  - section: "ADJUSTMENTS"
+    name: "Clutch lever free play"
+    value: "5–7"
+    unit: "mm"
+    note: null
+    extra: null
