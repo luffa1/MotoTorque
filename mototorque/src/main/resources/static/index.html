@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    <link rel="manifest" href="/manifest.json">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta nam="theme-color" content="#111111">
     <title>MotoTorque</title>
     <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
         body {
             background: #111;
             color: #eee;
@@ -11,8 +19,20 @@
             margin: 0;
             padding: 40px;
         }
+
+        .app {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
         h1 { margin-bottom: 30px; }
-        .picker-row { display: flex; gap: 24px; flex-wrap: wrap; }
+
+        .picker-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
         .picker {
             background: #1a1a1a;
             border-radius: 12px;
@@ -20,6 +40,7 @@
             width: 320px;
             position: relative;
         }
+
         .picker-number {
             width: 36px; height: 36px;
             border-radius: 50%; border: 2px solid #a07b49;
@@ -27,15 +48,23 @@
             display: flex; justify-content: center; align-items: center;
             font-weight: bold; margin-bottom: 8px;
         }
+
         .picker-label {
             font-size: 12px; text-transform: uppercase;
             letter-spacing: 1px; opacity: 0.8; margin-bottom: 8px;
         }
+
         .input-with-list { position: relative; }
+
         .input-with-list input {
-            width: 100%; border: 1px solid #333; border-radius: 8px;
-            padding: 12px 14px; background: #151515; color: #fff;
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px 14px;
+            background: #151515;
+            color: #fff;
         }
+
         .suggestion-list {
             position: absolute; left: 0; right: 0; top: calc(100% + 4px);
             background: #1f1f1f; border: 1px solid #333; border-radius: 8px;
@@ -47,7 +76,9 @@
         }
         .suggestion-item:hover { background: #2c2c2c; }
         .suggestion-empty { color: #aaa; cursor: default; }
+
         .hidden { display: none; }
+
         .torque-search { margin-top: 40px; }
         .torque-results .torque-result {
             margin-top: 16px; padding: 16px; border-radius: 10px;
@@ -56,6 +87,7 @@
         .torque-part { font-size: 20px; font-weight: bold; margin-bottom: 8px; }
         .torque-value { font-size: 32px; margin-bottom: 8px; }
         .torque-error { margin-top: 12px; color: #f88; }
+
         .maintenance-list {
             margin-top: 16px; background: #181818; border: 1px solid #333;
             border-radius: 10px; padding: 16px;
@@ -63,10 +95,45 @@
         .maintenance-item { padding: 10px 0; border-bottom: 1px solid #2b2b2b; }
         .maintenance-item:last-child { border-bottom: none; }
         .maintenance-category { font-weight: 600; color: #a07b49; }
+
+        /* --- mobilne nadpisania --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px;
+            }
+
+            h1 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .picker-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .picker {
+                width: 100%;
+            }
+
+            .input-with-list input,
+            .torque-search button,
+            .maintenance button {
+                width: 100%;
+                font-size: 16px;
+                padding: 14px 16px;
+                min-height: 48px;
+            }
+
+            .torque-search,
+            .maintenance {
+                margin-top: 24px;
+            }
+        }
     </style>
 </head>
 <body>
-<h1>MotoTorque</h1>
+<main class="app">
 
 <div class="picker-row">
     <!-- Marka -->
@@ -480,6 +547,12 @@ window.askToSearch = url => {
     window.searchTorque     = searchTorque;
     window.loadMaintenance  = loadMaintenance;
 })();
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(console.error);
+  });
+}
 </script>
+</main>
 </body>
 </html>

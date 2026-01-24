@@ -19,6 +19,14 @@ import java.util.List;
 @Service
 public class TorqueLookupService {
 
+    private static final List<String> TORQUE_KEYWORDS = List.of(
+            "moment dokręcania",
+            "Nm",
+            "torque",
+            "torque spec",
+            "tightening torque"
+    );
+
     private final MotorcycleRepository motorcycleRepository;
     private final TorqueSpecRepository torqueSpecRepository;
     private final PartAliasRepository partAliasRepository;
@@ -92,14 +100,27 @@ public class TorqueLookupService {
 
     private String buildGoogleLink(String brand,
                                    String model,
-                                   int year,
-                                   String query) {
-        String searchPhrase = "%s %s %d torque %s".formatted(
-                brand != null ? brand : "",
-                model != null ? model : "",
-                year,
-                query != null ? query : ""
-        ).trim();
+                                   int productionYear,
+                                   String partQuery) {
+        List<String> tokens = new ArrayList<>();
+
+        if (brand != null && !brand.isBlank()){
+            tokens.add(" " + brand.trim() + " ");
+        }
+        if (model != null && !model.isBlank()){
+            tokens.add(" " + model.trim() + " ");
+        }
+        if (productionYear > 0){
+            tokens.add(String.valueOf(productionYear));
+        }
+        if (partQuery != null && !partQuery.isBlank()){
+            tokens.add(" " + partQuery.trim() + " ");
+        }
+
+        tokens.add("torque");
+        tokens.add("Nm");
+
+        String searchPhrase = String.join(" ", tokens);
 
         return "https://www.google.com/search?q=" +
                 URLEncoder.encode(searchPhrase, StandardCharsets.UTF_8);
