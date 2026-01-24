@@ -1,7 +1,9 @@
 package com.luffa.mototorque.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "torque_spec")
 public class TorqueSpec {
@@ -67,59 +69,4 @@ public class TorqueSpec {
         this.manualPage = manualPage;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public Motorcycle getMotorcycle() {
-        return motorcycle;
-    }
-
-    public String getPartName() {
-        return partName;
-    }
-
-    public int getTorqueNm() {
-        return torqueNm;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public Integer getTorqueMinNm() {
-        return torqueMinNm;
-    }
-
-    public Integer getTorqueMaxNm() {
-        return torqueMaxNm;
-    }
-
-    public Integer getAngleDegrees() {
-        return angleDegrees;
-    }
-
-    public String getThreadSize() {
-        return threadSize;
-    }
-
-    public String getTool() {
-        return tool;
-    }
-
-    public String getLockingCompound() {
-        return lockingCompound;
-    }
-
-    public String getManualSection() {
-        return manualSection;
-    }
-
-    public Integer getManualPage() {
-        return manualPage;
-    }
 }

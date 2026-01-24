@@ -1,13 +1,17 @@
-const CACHE_STATIC  = 'static-v5';
-const CACHE_DYNAMIC = 'dynamic-v3';
+const CACHE_STATIC  = 'static-v12';
+const CACHE_DYNAMIC = 'dynamic-v4';
 const OFFLINE_PAGE  = '/index.html';
 
 const STATIC_ASSETS = [
   '/',
   OFFLINE_PAGE,
+  '/app.js',
+  '/vendor/idb.min.js',
   '/manifest.json',
   '/icons/icon-192.png',
-  '/icons/icon-512.png'
+  '/icons/icon-512.png',
+  '/screenshots/home-narrow.png',
+  '/screenshots/home-wide.png'
 ];
 
 const apiOfflineResponse = () =>
@@ -32,7 +36,9 @@ self.addEventListener('activate', event => {
   const keep = [CACHE_STATIC, CACHE_DYNAMIC];
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => !keep.includes(k)).map(k => caches.delete(k)))
+      Promise.all(
+        keys.filter(k => !keep.includes(k)).map(k => caches.delete(k))
+      )
     )
   );
   self.clients.claim();
@@ -45,7 +51,6 @@ self.addEventListener('fetch', event => {
   const url = new URL(request.url);
   if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
 
-  // Dokumenty
   if (request.mode === 'navigate' ||
       (request.headers.get('accept') || '').includes('text/html')) {
     event.respondWith(
@@ -54,7 +59,6 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // API
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(
       fetch(request)
@@ -70,7 +74,6 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Pozostałe zasoby (CSS/JS/img)
   event.respondWith(
     caches.match(request).then(cached => {
       if (cached) return cached;

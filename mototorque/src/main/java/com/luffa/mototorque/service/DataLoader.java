@@ -1,4 +1,4 @@
-package com.luffa.mototorque;
+package com.luffa.mototorque.service;
 
 import com.luffa.mototorque.seeder.MotorcycleSeedPersister;
 import com.luffa.mototorque.seeder.MotorcycleSeedReader;
