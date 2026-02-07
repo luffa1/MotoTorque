@@ -1,0 +1,254 @@
+brand: "BMW"
+model: "F800GS Adventure"
+productionYear: 2014
+
+torqueSpecs:
+  - part: "FRONT BRAKE CALIPER TO FORK"
+    torqueNm: 38
+    note: "Tighten both calipers evenly"
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "M10"
+    tool: "Torx T50 / Hex 12 mm"
+    treatment: null
+    location: "Front wheel / Brake caliper"
+    manualPage: null
+    aliases:
+      - "zacisk przedni"
+      - "zacisk hamulca przód"
+      - "front brake caliper"
+
+  - part: "FRONT AXLE PINCH BOLT"
+    torqueNm: 19
+    note: "Tighten alternately"
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "M8"
+    tool: "Hex 6 mm"
+    treatment: null
+    location: "Front wheel / Axle clamp"
+    manualPage: null
+    aliases:
+      - "śruba dociskowa osi"
+      - "zacisk osi"
+
+  - part: "FRONT AXLE"
+    torqueNm: 50
+    note: null
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "Axle nut"
+    tool: "Hex 27 mm"
+    treatment: null
+    location: "Front wheel / Axle"
+    manualPage: null
+    aliases:
+      - "oś przednia"
+      - "śruba osi przedniej"
+
+  - part: "REAR AXLE"
+    torqueNm: 100
+    note: null
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "Axle nut"
+    tool: "Hex 27 mm"
+    treatment: null
+    location: "Rear wheel / Axle"
+    manualPage: null
+    aliases:
+      - "oś tylna"
+      - "śruba osi tylnej"
+
+  - part: "FRONT SPROCKET BOLT"
+    torqueNm: 50
+    note: "Use medium strength thread locking compound"
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "Sprocket bolt"
+    tool: "Hex 10 mm"
+    treatment: "Loctite 243 / Suzuki/Yamaha equivalent"
+    location: "Final drive / Front sprocket"
+    manualPage: null
+    aliases:
+      - "śruba zębatki przedniej"
+      - "front sprocket bolt"
+
+  - part: "REAR SPROCKET NUTS"
+    torqueNm: 10
+    note: "Plus additional 90° angle; replace nuts and use mechanical thread lock"
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "Rear sprocket nuts"
+    tool: "Hex 8 mm"
+    treatment: "Thread lock + angle torque"
+    location: "Final drive / Rear sprocket"
+    manualPage: null
+    aliases:
+      - "kontrnakrętki zębatki tylnej"
+      - "rear sprocket nuts"
+
+  - part: "ENGINE OIL DRAIN PLUG"
+    torqueNm: 40
+    note: null
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "Drain plug"
+    tool: "Hex 14 mm"
+    treatment: null
+    location: "Engine / Oil pan"
+    manualPage: null
+    aliases:
+      - "śruba spustowa oleju"
+      - "oil drain plug"
+
+  - part: "OIL FILTER COVER / FILTER BOLT"
+    torqueNm: 10
+    note: null
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "Filter cover bolt"
+    tool: "Hex 8 mm"
+    treatment: null
+    location: "Engine / Oil filter"
+    manualPage: null
+    aliases:
+      - "filtr oleju"
+      - "oil filter bolt"
+
+  - part: "SPARK PLUG"
+    torqueNm: 20
+    note: null
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "Spark plug"
+    tool: "Spark plug socket"
+    treatment: null
+    location: "Engine / Spark plug"
+    manualPage: null
+    aliases:
+      - "świeca zapłonowa"
+      - "spark plug"
+
+  - part: "CAM COVER BOLTS"
+    torqueNm: 10
+    note: "Tighten in criss-cross pattern"
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "M6"
+    tool: "Hex 6 mm"
+    treatment: null
+    location: "Engine / Cam cover"
+    manualPage: null
+    aliases:
+      - "śruby pokrywy zaworów"
+      - "cam cover bolts"
+
+  - part: "COOLANT PUMP DRAIN PLUG"
+    torqueNm: 10
+    note: null
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "Drain plug"
+    tool: "Hex 8 mm"
+    treatment: null
+    location: "Cooling system / Pump"
+    manualPage: null
+    aliases:
+      - "śruba spustowa pompy chłodzenia"
+      - "coolant pump drain plug"
+
+maintenanceSpecs:
+  - section: "CHAIN"
+    name: "Chain slack"
+    value: "35–45"
+    unit: "mm"
+    note: "Bike on side stand, no load, measure at tightest point"
+    extra: null
+
+  - section: "TIRES"
+    name: "Front tire pressure (solo)"
+    value: "2.2"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+
+  - section: "TIRES"
+    name: "Rear tire pressure (solo)"
+    value: "2.5"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+
+  - section: "TIRES"
+    name: "Rear tire pressure (with passenger)"
+    value: "2.9"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+
+  - section: "TIRES"
+    name: "Minimum tread depth"
+    value: "1.6"
+    unit: "mm"
+    note: "Legal minimum"
+    extra: null
+
+  - section: "LIGHTING"
+    name: "Headlight"
+    value: "H7 x 2"
+    unit: null
+    note: null
+    extra: null
+
+  - section: "LIGHTING"
+    name: "Sidelight"
+    value: "W5W"
+    unit: null
+    note: null
+    extra: null
+
+  - section: "ELECTRICAL"
+    name: "Battery type"
+    value: "12 V / 12 Ah, maintenance-free"
+    unit: null
+    note: null
+    extra: null
+
+  - section: "ENGINE_OIL"
+    name: "Specification"
+    value: "SAE 15W-50, API SJ/ML, JASO MA"
+    unit: null
+    note: "Refer to OEM specs"
+    extra: null
+
+  - section: "ENGINE_OIL"
+    name: "Capacity (with filter)"
+    value: "2.9"
+    unit: "L"
+    note: "Engine oil with filter"
+    extra: null
+
+  - section: "COOLANT"
+    name: "Type"
+    value: "Ethylene-glycol based coolant"
+    unit: null
+    note: "Mix 1:1, level between MIN–MAX"
+    extra: null
+
+  - section: "BRAKE_FLUID"
+    name: "Fluid"
+    value: "DOT 4"
+    unit: null
+    note: "Replace every ~2 years"
+    extra: null
+
+  - section: "ADJUSTMENTS"
+    name: "Valve clearances (cold)"
+    value: "Inlet: 0.18–0.26 | Exhaust: 0.27–0.35"
+    unit: "mm"
+    note: "Cold engine measure"
+    extra: null
+
+  - section: "SUSPENSION"
+    name: "Front fork oil per leg"
+    value: "0.61"
+    unit: "L"
+    note: "SAE 7.5W fork oil"
+    extra: null
+
+  - section: "MAINTENANCE"
+    name: "Spark plug gap"
+    value: "0.8–0.9"
+    unit: "mm"
+    note: "Standard NGK DCPR8E"
+    extra: null
