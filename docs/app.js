@@ -168,6 +168,18 @@ window.addEventListener('load', async () => {
   initUI();
 });
 
+async function tryBackendOrLocal(fetcher, fallback) {
+  try {
+    const result = await fetcher();
+    if (result !== undefined && result !== null) {
+      return result;
+    }
+    throw new Error('Empty response');
+  } catch (err) {
+    console.warn('Backend niedostępny – korzystam z danych offline', err);
+    return fallback();
+  }
+}
 /* ===========================
    4. LOGIKA UI
 =========================== */
@@ -255,18 +267,23 @@ async function fetchPickerSuggestions(type, query) {
       return showSuggestionMessage(type, 'Najpierw wybierz markę');
     }
 
-    let data;
-    if (USE_BACKEND) {
-      const url = type === 'brand'
-        ? ENDPOINTS.brands(query)
-        : ENDPOINTS.models(query);
-      const res = await fetch(url);
-      data = await res.json();
-    } else {
-      data = type === 'brand'
-        ? localApi.getBrands(query)
-        : localApi.getModels(state.brand, query);
-    }
+    const data = USE_BACKEND
+      ? await tryBackendOrLocal(
+          async () => {
+            const url = type === 'brand'
+              ? ENDPOINTS.brands(query)
+              : ENDPOINTS.models(query);
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(res.statusText);
+            return res.json();
+          },
+          () => type === 'brand'
+              ? localApi.getBrands(query)
+              : localApi.getModels(state.brand, query)
+        )
+      : (type === 'brand'
+          ? localApi.getBrands(query)
+          : localApi.getModels(state.brand, query));
 
     renderPickerSuggestions(type, data);
   } catch {
@@ -326,29 +343,32 @@ async function fetchYears() {
   }
 
   try {
-    let years;
-    if (USE_BACKEND) {
-      const res = await fetch(ENDPOINTS.years());
-      years = await res.json();
-    } else {
-      years = localApi.getYears(state.brand, state.model);
-    }
+      const years = USE_BACKEND
+        ? await tryBackendOrLocal(
+            async () => {
+              const res = await fetch(ENDPOINTS.years());
+              if (!res.ok) throw new Error();
+              return res.json();
+            },
+            () => localApi.getYears(state.brand, state.model)
+          )
+        : localApi.getYears(state.brand, state.model);
 
-    if (!years.length) {
-      return showSuggestionMessage('year', 'Brak danych roczników');
-    }
+      if (!years.length) {
+        return showSuggestionMessage('year', 'Brak danych roczników');
+      }
 
-    years.forEach(year => {
-      const el = document.createElement('div');
-      el.className = 'suggestion-item';
-      el.textContent = year;
-      el.onclick = () => selectYear(year);
-      box.appendChild(el);
-    });
+      years.forEach(year => {
+        const el = document.createElement('div');
+        el.className = 'suggestion-item';
+        el.textContent = year;
+        el.onclick = () => selectYear(year);
+        box.appendChild(el);
+      });
 
-    toggleSuggestions('year', true);
-  } catch {
-    showSuggestionMessage('year', 'Błąd połączenia');
+     toggleSuggestions('year', true);
+   } catch {
+      showSuggestionMessage('year', 'Błąd połączenia');
   }
 }
 
@@ -394,18 +414,26 @@ function handleTorqueInput() {
 
 async function fetchTorqueSuggestions(query) {
   try {
-    let items;
-    if (USE_BACKEND) {
-      const res = await fetch(ENDPOINTS.torqueSuggestions(query));
-      items = await res.json();
-    } else {
-      items = localApi.getTorqueAliases({
-        brand: state.brand,
-        model: state.model,
-        year: pickers.year.input.value,
-        query
-      });
-    }
+    const items = USE_BACKEND
+      ? await tryBackendOrLocal(
+          async () => {
+            const res = await fetch(ENDPOINTS.torqueSuggestions(query));
+            if (!res.ok) throw new Error();
+            return res.json();
+          },
+          () => localApi.getTorqueAliases({
+            brand: state.brand,
+            model: state.model,
+            year: pickers.year.input.value,
+            query
+          })
+        )
+      : localApi.getTorqueAliases({
+          brand: state.brand,
+          model: state.model,
+          year: pickers.year.input.value,
+          query
+        });
 
     renderTorqueSuggestions(items);
   } catch {
@@ -456,22 +484,27 @@ async function searchTorque() {
   fallbackBox.innerHTML = '';
 
   try {
-    let data;
-
-    if (USE_BACKEND) {
-      const res = await fetch(ENDPOINTS.torque(query));
-      data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.message || 'Brak danych – spróbuj innej frazy');
-      }
-    } else {
-      data = localApi.searchTorque({
-        brand: state.brand,
-        model: state.model,
-        year: pickers.year.input.value,
-        query
-      });
-    }
+    const data = USE_BACKEND
+      ? await tryBackendOrLocal(
+          async () => {
+            const res = await fetch(ENDPOINTS.torque(query));
+            const json = await res.json();
+            if (!res.ok) throw new Error(json.message || 'Brak danych – spróbuj innej frazy');
+            return json;
+          },
+          () => localApi.searchTorque({
+            brand: state.brand,
+            model: state.model,
+            year: pickers.year.input.value,
+            query
+          })
+        )
+      : localApi.searchTorque({
+          brand: state.brand,
+          model: state.model,
+          year: pickers.year.input.value,
+          query
+        });
 
     if (!data.found || !data.specs?.length) {
       errorBox.textContent = 'Brak danych – spróbuj innej frazy';
@@ -494,15 +527,13 @@ async function searchTorque() {
         ${item.threadSize ? `<div class="torque-notes">Śruba: ${item.threadSize}</div>` : ''}
         ${item.notes ? `<div class="torque-notes">${item.notes}</div>` : ''}
         <div class="torque-source">${item.source || ''}</div>
-        <div class="torque-notes">
-          Znaleziono po: <strong>${item.matchedBy === 'THREAD_SIZE' ? 'numerze śruby' : 'nazwie/aliasie'}</strong>
-        </div>
+        <div class="torque-notes">Znaleziono po: <strong>${item.matchedBy === 'THREAD_SIZE' ? 'numerze śruby' : 'nazwie/aliasie'}</strong></div>
       </div>
     `).join('');
 
     resultBox.classList.remove('hidden');
   } catch (err) {
-    errorBox.textContent = err.message || "Błąd połączenia";
+    errorBox.textContent = err.message || 'Błąd połączenia';
     errorBox.classList.remove('hidden');
   }
 }
@@ -527,19 +558,24 @@ async function loadMaintenance() {
   listBox.innerHTML = '';
 
   try {
-    let data;
-
-    if (USE_BACKEND) {
-      const res = await fetch(ENDPOINTS.maintenance());
-      if (!res.ok) throw new Error();
-      data = await res.json();
-    } else {
-      data = localApi.getMaintenance({
-        brand: state.brand,
-        model: state.model,
-        year: pickers.year.input.value
-      });
-    }
+    const data = USE_BACKEND
+      ? await tryBackendOrLocal(
+          async () => {
+            const res = await fetch(ENDPOINTS.maintenance());
+            if (!res.ok) throw new Error();
+            return res.json();
+          },
+          () => localApi.getMaintenance({
+            brand: state.brand,
+            model: state.model,
+            year: pickers.year.input.value
+          })
+        )
+      : localApi.getMaintenance({
+          brand: state.brand,
+          model: state.model,
+          year: pickers.year.input.value
+        });
 
     if (!data.length) {
       errorBox.textContent = 'Brak danych eksploatacyjnych dla tego motocykla.';
@@ -560,8 +596,8 @@ async function loadMaintenance() {
     `).join('');
 
     listBox.classList.remove('hidden');
-  } catch {
-    errorBox.textContent = 'Brak danych eksploatacyjnych – spróbuj później.';
+  } catch (err) {
+    errorBox.textContent = err.message || 'Brak danych eksploatacyjnych – spróbuj później.';
     errorBox.classList.remove('hidden');
   }
 }
