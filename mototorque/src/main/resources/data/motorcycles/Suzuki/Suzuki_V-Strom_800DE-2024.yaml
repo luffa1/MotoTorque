@@ -1,0 +1,244 @@
+brand: "Suzuki"
+model: "V-Strom 800DE"
+productionYear: 2024
+
+torqueSpecs:
+  - part: "SIDE STAND MOUNTING BOLT"
+    torqueNm: 45
+    note: "Apply thread lock"
+    source: "Suzuki V-Strom 800 Service Manual (Chassis)"
+    fastener: "M10"
+    tool: "Hex 14 mm"
+    treatment: "Suzuki Thread Lock / Loctite 243"
+    location: "Chassis / Side stand"
+    manualPage: 6-36
+    aliases:
+      - "stopka"
+      - "boczna stopka"
+      - "side stand bolt"
+
+  - part: "FRONT BRAKE CALIPER TO FORK"
+    torqueNm: 50
+    note: "Tighten evenly on both sides"
+    source: "Suzuki V-Strom 800 Service Manual (Front brake)"
+    fastener: "M10"
+    tool: "Hex 12 mm"
+    treatment: null
+    location: "Front wheel / Brake caliper"
+    manualPage: 5-24
+    aliases:
+      - "zacisk przedni"
+      - "zacisk hamulca przód"
+      - "front brake caliper"
+
+  - part: "FRONT AXLE PINCH BOLT"
+    torqueNm: 23
+    note: "Tighten alternately"
+    source: "Suzuki V-Strom 800 Service Manual (Front wheel)"
+    fastener: "M8"
+    tool: "Hex 6 mm"
+    treatment: null
+    location: "Front wheel / Axle clamp"
+    manualPage: 5-21
+    aliases:
+      - "śruba dociskowa osi"
+      - "zacisk osi"
+
+  - part: "FRONT AXLE"
+    torqueNm: 100
+    note: null
+    source: "Suzuki V-Strom 800 Service Manual (Front wheel)"
+    fastener: "Axle shaft"
+    tool: "Hex 22 mm"
+    treatment: null
+    location: "Front wheel / Axle"
+    manualPage: 5-21
+    aliases:
+      - "oś przednia"
+      - "śruba osi przedniej"
+
+  - part: "CHAIN ADJUSTER LOCKNUT"
+    torqueNm: 19
+    note: null
+    source: "Suzuki V-Strom 800 Service Manual (Rear wheel)"
+    fastener: "M8"
+    tool: "Wrench 12 mm"
+    treatment: null
+    location: "Rear wheel / Chain adjuster"
+    manualPage: 5-30
+    aliases:
+      - "kontrnakrętka naciągu"
+      - "naciąg łańcucha"
+
+  - part: "REAR AXLE"
+    torqueNm: 100
+    note: null
+    source: "Suzuki V-Strom 800 Service Manual (Rear wheel)"
+    fastener: "Axle shaft"
+    tool: "Hex 27 mm"
+    treatment: null
+    location: "Rear wheel / Axle"
+    manualPage: 5-30
+    aliases:
+      - "oś tylna"
+      - "śruba osi tylnej"
+
+  - part: "MIRROR LOCKNUT"
+    torqueNm: 23
+    note: null
+    source: "Suzuki V-Strom 800 Service Manual (Handlebar)"
+    fastener: "M10"
+    tool: "Wrench 17 mm"
+    treatment: null
+    location: "Controls / Mirrors"
+    manualPage: 4-12
+    aliases:
+      - "kontrnakrętka lusterka"
+      - "mocowanie lusterka"
+
+  - part: "HEADLIGHT BRACKET BOLT"
+    torqueNm: 10
+    note: null
+    source: "Suzuki V-Strom 800 Service Manual (Lighting)"
+    fastener: "M6"
+    tool: "Hex 5 mm"
+    treatment: null
+    location: "Lighting / Headlight"
+    manualPage: 7-18
+    aliases:
+      - "śruba reflektora"
+      - "mocowanie lampy"
+
+maintenanceSpecs:
+  - section: "CHAIN"
+    name: "Chain slack"
+    value: "25–35"
+    unit: "mm"
+    note: "Bike on side stand, no load, measure at tightest point"
+    extra: null
+
+  - section: "TIRES"
+    name: "Front tire pressure (solo)"
+    value: "2.25"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+
+  - section: "TIRES"
+    name: "Rear tire pressure (solo)"
+    value: "2.50"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+
+  - section: "TIRES"
+    name: "Rear tire pressure (with passenger / luggage)"
+    value: "2.80"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+
+  - section: "TIRES"
+    name: "Minimum tread depth"
+    value: "1.6"
+    unit: "mm"
+    note: null
+    extra: null
+
+  - section: "LIGHTING"
+    name: "Headlight"
+    value: "LED"
+    unit: null
+    note: "Non-serviceable bulb"
+    extra: null
+
+  - section: "LIGHTING"
+    name: "Tail / stop lamp"
+    value: "LED"
+    unit: null
+    note: null
+    extra: null
+
+  - section: "LIGHTING"
+    name: "Turn signals front / rear"
+    value: "LED"
+    unit: null
+    note: null
+    extra: null
+
+  - section: "ELECTRICAL"
+    name: "Battery type"
+    value: "12 V AGM (maintenance free)"
+    unit: null
+    note: null
+    extra: null
+
+  - section: "ELECTRICAL"
+    name: "Fuses"
+    value: "7.5 / 10 / 15 / 20 / 30"
+    unit: "A"
+    note: "Main fuse: 30 A"
+    extra: null
+
+  - section: "ENGINE_OIL"
+    name: "Specification"
+    value: "API SG or higher, JASO MA / MA2"
+    unit: null
+    note: null
+    extra: null
+
+  - section: "ENGINE_OIL"
+    name: "Viscosity (recommended)"
+    value: "SAE 10W-40"
+    unit: null
+    note: null
+    extra: null
+
+  - section: "ENGINE_OIL"
+    name: "Capacity (with filter)"
+    value: "3.9"
+    unit: "L"
+    note: null
+    extra: null
+
+  - section: "COOLANT"
+    name: "Type"
+    value: "Ethylene-glycol based (Suzuki Super Long Life)"
+    unit: null
+    note: "Level between MIN–MAX"
+    extra: null
+
+  - section: "BRAKE_FLUID"
+    name: "Fluid"
+    value: "DOT 4"
+    unit: null
+    note: "Replace every 2 years"
+    extra: null
+
+  - section: "ADJUSTMENTS"
+    name: "Throttle free play"
+    value: "2–4"
+    unit: "mm"
+    note: "Measured at throttle grip"
+    extra: null
+
+  - section: "ADJUSTMENTS"
+    name: "Clutch lever free play"
+    value: "10–15"
+    unit: "mm"
+    note: "Measured at lever end"
+    extra: null
+
+  - section: "SUSPENSION"
+    name: "Front suspension adjustment"
+    value: "-"
+    unit: null
+    note: "Compression / rebound / preload adjustable (DE)"
+    extra: null
+
+  - section: "SUSPENSION"
+    name: "Rear preload adjustment"
+    value: "-"
+    unit: null
+    note: "Manual adjuster, no torque setting"
+    extra: null
