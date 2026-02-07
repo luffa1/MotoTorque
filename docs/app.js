@@ -1,7 +1,11 @@
 const SPEC_PACK_URL = './data/spec-pack.json';
 const DB_NAME = 'mototorque';
 const STORE_SPECS = 'specs';
-const USE_BACKEND = false; // true = korzysta z backendu, false = pełny tryb offline
+const USE_BACKEND = true;   // true = korzysta z backendu, false = pełny tryb offline
+
+const API_BASE = window.location.hostname === 'localhost'
+  ? 'http://localhost:8080'                  // backend lokalny (dev)
+  : 'https://mototorque-backend.onrender.com'; // <-- podmień na URL swojego backendu
 
 /* ===========================
    1. IndexedDB cache
@@ -187,12 +191,12 @@ let torqueInput;
 let torqueSuggestionsEl;
 
 const ENDPOINTS = {
-  brands:  q => `/api/motorcycles/brands?query=${encodeURIComponent(q)}`,
-  models:  q => `/api/motorcycles/models?brand=${encodeURIComponent(state.brand)}&query=${encodeURIComponent(q)}`,
-  years:   () => `/api/motorcycles/years?brand=${encodeURIComponent(state.brand)}&model=${encodeURIComponent(state.model)}`,
-  torque:  q => `/api/torque?brand=${encodeURIComponent(state.brand)}&model=${encodeURIComponent(state.model)}&productionYear=${encodeURIComponent(pickers.year.input.value)}&query=${encodeURIComponent(q)}`,
-  torqueSuggestions: q => `/api/torque/suggestions?brand=${encodeURIComponent(state.brand)}&model=${encodeURIComponent(state.model)}&productionYear=${encodeURIComponent(pickers.year.input.value)}&query=${encodeURIComponent(q)}`,
-  maintenance: () => `/api/maintenance?brand=${encodeURIComponent(state.brand)}&model=${encodeURIComponent(state.model)}&productionYear=${encodeURIComponent(pickers.year.input.value)}`
+  brands:  q => `${API_BASE}/api/motorcycles/brands?query=${encodeURIComponent(q)}`,
+  models:  q => `${API_BASE}/api/motorcycles/models?brand=${encodeURIComponent(state.brand)}&query=${encodeURIComponent(q)}`,
+  years:   () => `${API_BASE}/api/motorcycles/years?brand=${encodeURIComponent(state.brand)}&model=${encodeURIComponent(state.model)}`,
+  torque:  q => `${API_BASE}/api/torque?brand=${encodeURIComponent(state.brand)}&model=${encodeURIComponent(state.model)}&productionYear=${encodeURIComponent(pickers.year.input.value)}&query=${encodeURIComponent(q)}`,
+  torqueSuggestions: q => `${API_BASE}/api/torque/suggestions?brand=${encodeURIComponent(state.brand)}&model=${encodeURIComponent(state.model)}&productionYear=${encodeURIComponent(pickers.year.input.value)}&query=${encodeURIComponent(q)}`,
+  maintenance: () => `${API_BASE}/api/maintenance?brand=${encodeURIComponent(state.brand)}&model=${encodeURIComponent(state.model)}&productionYear=${encodeURIComponent(pickers.year.input.value)}`
 };
 
 function initUI() {
@@ -498,7 +502,7 @@ async function searchTorque() {
 
     resultBox.classList.remove('hidden');
   } catch (err) {
-    errorBox.textContent = err.message || 'Błąd połączenia';
+    errorBox.textContent = err.message או 'Błąd połączenia';
     errorBox.classList.remove('hidden');
   }
 }
