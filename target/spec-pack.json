@@ -1,6 +1,239 @@
 {
-  "version" : "2026-02-04",
+  "version" : "2026-02-07",
   "motorcycles" : [ {
+    "id" : null,
+    "brand" : "BMW",
+    "model" : "F800GS ADV",
+    "productionYear" : 2014,
+    "maintenanceSpecs" : [ {
+      "section" : "CHAIN",
+      "name" : "Chain slack",
+      "value" : "35–45",
+      "unit" : "mm",
+      "note" : "Bike on side stand, no load, measure at tightest point",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Front tire pressure (solo)",
+      "value" : "2.2",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Rear tire pressure (solo)",
+      "value" : "2.5",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Rear tire pressure (with passenger)",
+      "value" : "2.9",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Minimum tread depth",
+      "value" : "1.6",
+      "unit" : "mm",
+      "note" : "Legal minimum",
+      "extra" : null
+    }, {
+      "section" : "LIGHTING",
+      "name" : "Headlight",
+      "value" : "H7 x 2",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "LIGHTING",
+      "name" : "Sidelight",
+      "value" : "W5W",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ELECTRICAL",
+      "name" : "Battery type",
+      "value" : "12 V / 12 Ah, maintenance-free",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ENGINE_OIL",
+      "name" : "Specification",
+      "value" : "SAE 15W-50, API SJ/ML, JASO MA",
+      "unit" : null,
+      "note" : "Refer to OEM specs",
+      "extra" : null
+    }, {
+      "section" : "ENGINE_OIL",
+      "name" : "Capacity (with filter)",
+      "value" : "2.9",
+      "unit" : "L",
+      "note" : "Engine oil with filter",
+      "extra" : null
+    }, {
+      "section" : "COOLANT",
+      "name" : "Type",
+      "value" : "Ethylene-glycol based coolant",
+      "unit" : null,
+      "note" : "Mix 1:1, level between MIN–MAX",
+      "extra" : null
+    }, {
+      "section" : "BRAKE_FLUID",
+      "name" : "Fluid",
+      "value" : "DOT 4",
+      "unit" : null,
+      "note" : "Replace every ~2 years",
+      "extra" : null
+    }, {
+      "section" : "ADJUSTMENTS",
+      "name" : "Valve clearances (cold)",
+      "value" : "Inlet: 0.18–0.26 | Exhaust: 0.27–0.35",
+      "unit" : "mm",
+      "note" : "Cold engine measure",
+      "extra" : null
+    }, {
+      "section" : "SUSPENSION",
+      "name" : "Front fork oil per leg",
+      "value" : "0.61",
+      "unit" : "L",
+      "note" : "SAE 7.5W fork oil",
+      "extra" : null
+    }, {
+      "section" : "MAINTENANCE",
+      "name" : "Spark plug gap",
+      "value" : "0.8–0.9",
+      "unit" : "mm",
+      "note" : "Standard NGK DCPR8E",
+      "extra" : null
+    } ],
+    "torqueSpecs" : [ {
+      "part" : "FRONT BRAKE CALIPER TO FORK",
+      "torqueNm" : 38,
+      "note" : "Tighten both calipers evenly",
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Torx T50 / Hex 12 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Brake caliper",
+      "manualPage" : null,
+      "aliases" : [ "zacisk przedni", "zacisk hamulca przód", "front brake caliper" ]
+    }, {
+      "part" : "FRONT AXLE PINCH BOLT",
+      "torqueNm" : 19,
+      "note" : "Tighten alternately",
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 6 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Axle clamp",
+      "manualPage" : null,
+      "aliases" : [ "śruba dociskowa osi", "zacisk osi" ]
+    }, {
+      "part" : "FRONT AXLE",
+      "torqueNm" : 50,
+      "note" : null,
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 27 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Axle",
+      "manualPage" : null,
+      "aliases" : [ "oś przednia", "śruba osi przedniej" ]
+    }, {
+      "part" : "REAR AXLE",
+      "torqueNm" : 100,
+      "note" : null,
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 27 mm",
+      "treatment" : null,
+      "location" : "Rear wheel / Axle",
+      "manualPage" : null,
+      "aliases" : [ "oś tylna", "śruba osi tylnej" ]
+    }, {
+      "part" : "FRONT SPROCKET BOLT",
+      "torqueNm" : 50,
+      "note" : "Use medium strength thread locking compound",
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 10 mm",
+      "treatment" : "Loctite 243 / Suzuki/Yamaha equivalent",
+      "location" : "Final drive / Front sprocket",
+      "manualPage" : null,
+      "aliases" : [ "śruba zębatki przedniej", "front sprocket bolt" ]
+    }, {
+      "part" : "REAR SPROCKET NUTS",
+      "torqueNm" : 10,
+      "note" : "Plus additional 90° angle; replace nuts and use mechanical thread lock",
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 8 mm",
+      "treatment" : "Thread lock + angle torque",
+      "location" : "Final drive / Rear sprocket",
+      "manualPage" : null,
+      "aliases" : [ "kontrnakrętki zębatki tylnej", "rear sprocket nuts" ]
+    }, {
+      "part" : "ENGINE OIL DRAIN PLUG",
+      "torqueNm" : 40,
+      "note" : null,
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 14 mm",
+      "treatment" : null,
+      "location" : "Engine / Oil pan",
+      "manualPage" : null,
+      "aliases" : [ "śruba spustowa oleju", "oil drain plug" ]
+    }, {
+      "part" : "OIL FILTER COVER / FILTER BOLT",
+      "torqueNm" : 10,
+      "note" : null,
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 8 mm",
+      "treatment" : null,
+      "location" : "Engine / Oil filter",
+      "manualPage" : null,
+      "aliases" : [ "filtr oleju", "oil filter bolt" ]
+    }, {
+      "part" : "SPARK PLUG",
+      "torqueNm" : 20,
+      "note" : null,
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Spark plug socket",
+      "treatment" : null,
+      "location" : "Engine / Spark plug",
+      "manualPage" : null,
+      "aliases" : [ "świeca zapłonowa", "spark plug" ]
+    }, {
+      "part" : "CAM COVER BOLTS",
+      "torqueNm" : 10,
+      "note" : "Tighten in criss-cross pattern",
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 6 mm",
+      "treatment" : null,
+      "location" : "Engine / Cam cover",
+      "manualPage" : null,
+      "aliases" : [ "śruby pokrywy zaworów", "cam cover bolts" ]
+    }, {
+      "part" : "COOLANT PUMP DRAIN PLUG",
+      "torqueNm" : 10,
+      "note" : null,
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 8 mm",
+      "treatment" : null,
+      "location" : "Cooling system / Pump",
+      "manualPage" : null,
+      "aliases" : [ "śruba spustowa pompy chłodzenia", "coolant pump drain plug" ]
+    } ]
+  }, {
     "id" : null,
     "brand" : "BMW",
     "model" : "F800R",
@@ -438,6 +671,476 @@
       "location" : "Controls / Mirrors",
       "manualPage" : 250,
       "aliases" : [ "adapter lusterka", "mocowanie lusterek" ]
+    } ]
+  }, {
+    "id" : null,
+    "brand" : "Suzuki",
+    "model" : "V-Strom 800DE",
+    "productionYear" : 2024,
+    "maintenanceSpecs" : [ {
+      "section" : "CHAIN",
+      "name" : "Chain slack",
+      "value" : "25–35",
+      "unit" : "mm",
+      "note" : "Bike on side stand, no load, measure at tightest point",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Front tire pressure (solo)",
+      "value" : "2.25",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Rear tire pressure (solo)",
+      "value" : "2.50",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Rear tire pressure (with passenger / luggage)",
+      "value" : "2.80",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Minimum tread depth",
+      "value" : "1.6",
+      "unit" : "mm",
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "LIGHTING",
+      "name" : "Headlight",
+      "value" : "LED",
+      "unit" : null,
+      "note" : "Non-serviceable bulb",
+      "extra" : null
+    }, {
+      "section" : "LIGHTING",
+      "name" : "Tail / stop lamp",
+      "value" : "LED",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "LIGHTING",
+      "name" : "Turn signals front / rear",
+      "value" : "LED",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ELECTRICAL",
+      "name" : "Battery type",
+      "value" : "12 V AGM (maintenance free)",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ELECTRICAL",
+      "name" : "Fuses",
+      "value" : "7.5 / 10 / 15 / 20 / 30",
+      "unit" : "A",
+      "note" : "Main fuse: 30 A",
+      "extra" : null
+    }, {
+      "section" : "ENGINE_OIL",
+      "name" : "Specification",
+      "value" : "API SG or higher, JASO MA / MA2",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ENGINE_OIL",
+      "name" : "Viscosity (recommended)",
+      "value" : "SAE 10W-40",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ENGINE_OIL",
+      "name" : "Capacity (with filter)",
+      "value" : "3.9",
+      "unit" : "L",
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "COOLANT",
+      "name" : "Type",
+      "value" : "Ethylene-glycol based (Suzuki Super Long Life)",
+      "unit" : null,
+      "note" : "Level between MIN–MAX",
+      "extra" : null
+    }, {
+      "section" : "BRAKE_FLUID",
+      "name" : "Fluid",
+      "value" : "DOT 4",
+      "unit" : null,
+      "note" : "Replace every 2 years",
+      "extra" : null
+    }, {
+      "section" : "ADJUSTMENTS",
+      "name" : "Throttle free play",
+      "value" : "2–4",
+      "unit" : "mm",
+      "note" : "Measured at throttle grip",
+      "extra" : null
+    }, {
+      "section" : "ADJUSTMENTS",
+      "name" : "Clutch lever free play",
+      "value" : "10–15",
+      "unit" : "mm",
+      "note" : "Measured at lever end",
+      "extra" : null
+    }, {
+      "section" : "SUSPENSION",
+      "name" : "Front suspension adjustment",
+      "value" : "-",
+      "unit" : null,
+      "note" : "Compression / rebound / preload adjustable (DE)",
+      "extra" : null
+    }, {
+      "section" : "SUSPENSION",
+      "name" : "Rear preload adjustment",
+      "value" : "-",
+      "unit" : null,
+      "note" : "Manual adjuster, no torque setting",
+      "extra" : null
+    } ],
+    "torqueSpecs" : [ {
+      "part" : "SIDE STAND MOUNTING BOLT",
+      "torqueNm" : 45,
+      "note" : "Apply thread lock",
+      "source" : "Suzuki V-Strom 800 Service Manual (Chassis)",
+      "festener" : null,
+      "tool" : "Hex 14 mm",
+      "treatment" : "Suzuki Thread Lock / Loctite 243",
+      "location" : "Chassis / Side stand",
+      "manualPage" : 6,
+      "aliases" : [ "stopka", "boczna stopka", "side stand bolt" ]
+    }, {
+      "part" : "FRONT BRAKE CALIPER TO FORK",
+      "torqueNm" : 50,
+      "note" : "Tighten evenly on both sides",
+      "source" : "Suzuki V-Strom 800 Service Manual (Front brake)",
+      "festener" : null,
+      "tool" : "Hex 12 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Brake caliper",
+      "manualPage" : 5,
+      "aliases" : [ "zacisk przedni", "zacisk hamulca przód", "front brake caliper" ]
+    }, {
+      "part" : "FRONT AXLE PINCH BOLT",
+      "torqueNm" : 23,
+      "note" : "Tighten alternately",
+      "source" : "Suzuki V-Strom 800 Service Manual (Front wheel)",
+      "festener" : null,
+      "tool" : "Hex 6 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Axle clamp",
+      "manualPage" : 5,
+      "aliases" : [ "śruba dociskowa osi", "zacisk osi" ]
+    }, {
+      "part" : "FRONT AXLE",
+      "torqueNm" : 100,
+      "note" : null,
+      "source" : "Suzuki V-Strom 800 Service Manual (Front wheel)",
+      "festener" : null,
+      "tool" : "Hex 22 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Axle",
+      "manualPage" : 5,
+      "aliases" : [ "oś przednia", "śruba osi przedniej" ]
+    }, {
+      "part" : "CHAIN ADJUSTER LOCKNUT",
+      "torqueNm" : 19,
+      "note" : null,
+      "source" : "Suzuki V-Strom 800 Service Manual (Rear wheel)",
+      "festener" : null,
+      "tool" : "Wrench 12 mm",
+      "treatment" : null,
+      "location" : "Rear wheel / Chain adjuster",
+      "manualPage" : 5,
+      "aliases" : [ "kontrnakrętka naciągu", "naciąg łańcucha" ]
+    }, {
+      "part" : "REAR AXLE",
+      "torqueNm" : 100,
+      "note" : null,
+      "source" : "Suzuki V-Strom 800 Service Manual (Rear wheel)",
+      "festener" : null,
+      "tool" : "Hex 27 mm",
+      "treatment" : null,
+      "location" : "Rear wheel / Axle",
+      "manualPage" : 5,
+      "aliases" : [ "oś tylna", "śruba osi tylnej" ]
+    }, {
+      "part" : "MIRROR LOCKNUT",
+      "torqueNm" : 23,
+      "note" : null,
+      "source" : "Suzuki V-Strom 800 Service Manual (Handlebar)",
+      "festener" : null,
+      "tool" : "Wrench 17 mm",
+      "treatment" : null,
+      "location" : "Controls / Mirrors",
+      "manualPage" : 4,
+      "aliases" : [ "kontrnakrętka lusterka", "mocowanie lusterka" ]
+    }, {
+      "part" : "HEADLIGHT BRACKET BOLT",
+      "torqueNm" : 10,
+      "note" : null,
+      "source" : "Suzuki V-Strom 800 Service Manual (Lighting)",
+      "festener" : null,
+      "tool" : "Hex 5 mm",
+      "treatment" : null,
+      "location" : "Lighting / Headlight",
+      "manualPage" : 7,
+      "aliases" : [ "śruba reflektora", "mocowanie lampy" ]
+    } ]
+  }, {
+    "id" : null,
+    "brand" : "Yamaha",
+    "model" : "Tenere 700 World Raid",
+    "productionYear" : 2024,
+    "maintenanceSpecs" : [ {
+      "section" : "CHAIN",
+      "name" : "Chain slack",
+      "value" : "45–50",
+      "unit" : "mm",
+      "note" : "Bike on side stand, no load, measure at tightest point",
+      "extra" : null
+    }, {
+      "section" : "CHAIN",
+      "name" : "Chain wear limit",
+      "value" : "-",
+      "unit" : null,
+      "note" : "Replace chain if stiff links or excessive elongation observed",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Front tire pressure (solo)",
+      "value" : "2.0",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Rear tire pressure (solo)",
+      "value" : "2.2",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Rear tire pressure (with passenger / luggage)",
+      "value" : "2.5",
+      "unit" : "bar",
+      "note" : "Cold tyres",
+      "extra" : null
+    }, {
+      "section" : "TIRES",
+      "name" : "Minimum tread depth",
+      "value" : "1.6",
+      "unit" : "mm",
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "LIGHTING",
+      "name" : "Headlight",
+      "value" : "LED (non-serviceable bulb)",
+      "unit" : null,
+      "note" : "Complete unit replacement if faulty",
+      "extra" : null
+    }, {
+      "section" : "LIGHTING",
+      "name" : "Position / tail / stop lamp",
+      "value" : "LED",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "LIGHTING",
+      "name" : "Turn signals front / rear",
+      "value" : "LED",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ELECTRICAL",
+      "name" : "Battery type",
+      "value" : "12 V AGM (YTZ10S or equivalent)",
+      "unit" : null,
+      "note" : "Connect + first, then –",
+      "extra" : null
+    }, {
+      "section" : "ELECTRICAL",
+      "name" : "Battery capacity",
+      "value" : "8.6",
+      "unit" : "Ah",
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ELECTRICAL",
+      "name" : "Fuses",
+      "value" : "7.5 / 10 / 15 / 20 / 30",
+      "unit" : "A",
+      "note" : "Main fuse: 30 A",
+      "extra" : null
+    }, {
+      "section" : "ENGINE_OIL",
+      "name" : "Specification",
+      "value" : "API SG or higher, JASO MA / MA2",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ENGINE_OIL",
+      "name" : "Viscosity (recommended)",
+      "value" : "SAE 10W-40",
+      "unit" : null,
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "ENGINE_OIL",
+      "name" : "Capacity (with filter)",
+      "value" : "3.0",
+      "unit" : "L",
+      "note" : null,
+      "extra" : null
+    }, {
+      "section" : "COOLANT",
+      "name" : "Type",
+      "value" : "Ethylene-glycol based coolant",
+      "unit" : null,
+      "note" : "No silicates, level between MIN–MAX",
+      "extra" : null
+    }, {
+      "section" : "BRAKE_FLUID",
+      "name" : "Fluid",
+      "value" : "DOT 4",
+      "unit" : null,
+      "note" : "Replace every 2 years",
+      "extra" : null
+    }, {
+      "section" : "ADJUSTMENTS",
+      "name" : "Throttle free play",
+      "value" : "3–5",
+      "unit" : "mm",
+      "note" : "Measured at throttle grip",
+      "extra" : null
+    }, {
+      "section" : "ADJUSTMENTS",
+      "name" : "Clutch lever free play",
+      "value" : "10–15",
+      "unit" : "mm",
+      "note" : "Measured at lever end",
+      "extra" : null
+    }, {
+      "section" : "SUSPENSION",
+      "name" : "Front suspension adjustment",
+      "value" : "-",
+      "unit" : null,
+      "note" : "Compression and rebound adjustable (clicks)",
+      "extra" : null
+    }, {
+      "section" : "SUSPENSION",
+      "name" : "Rear preload adjustment",
+      "value" : "-",
+      "unit" : null,
+      "note" : "Tool-adjusted collar, no torque setting",
+      "extra" : null
+    } ],
+    "torqueSpecs" : [ {
+      "part" : "SIDE STAND MOUNTING BOLT",
+      "torqueNm" : 40,
+      "note" : "Apply thread locking agent",
+      "source" : "Yamaha Tenere 700 Service Manual (Chassis)",
+      "festener" : null,
+      "tool" : "Hex 14 mm",
+      "treatment" : "Yamaha Bond / Loctite 243",
+      "location" : "Chassis / Side stand",
+      "manualPage" : 4,
+      "aliases" : [ "stopka", "boczna stopka", "side stand bolt" ]
+    }, {
+      "part" : "FRONT BRAKE CALIPER TO FORK",
+      "torqueNm" : 40,
+      "note" : "Tighten both sides evenly",
+      "source" : "Yamaha Tenere 700 Service Manual (Front wheel)",
+      "festener" : null,
+      "tool" : "Hex 12 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Brake caliper",
+      "manualPage" : 4,
+      "aliases" : [ "zacisk przedni", "zacisk hamulca przód", "front brake caliper" ]
+    }, {
+      "part" : "FRONT AXLE PINCH BOLT",
+      "torqueNm" : 23,
+      "note" : "Tighten alternately",
+      "source" : "Yamaha Tenere 700 Service Manual (Front wheel)",
+      "festener" : null,
+      "tool" : "Hex 6 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Axle clamp",
+      "manualPage" : 4,
+      "aliases" : [ "śruba dociskowa osi", "zacisk osi" ]
+    }, {
+      "part" : "FRONT AXLE",
+      "torqueNm" : 90,
+      "note" : null,
+      "source" : "Yamaha Tenere 700 Service Manual (Front wheel)",
+      "festener" : null,
+      "tool" : "Hex 22 mm",
+      "treatment" : null,
+      "location" : "Front wheel / Axle",
+      "manualPage" : 4,
+      "aliases" : [ "oś przednia", "śruba osi przedniej" ]
+    }, {
+      "part" : "CHAIN ADJUSTER LOCKNUT",
+      "torqueNm" : 16,
+      "note" : null,
+      "source" : "Yamaha Tenere 700 Service Manual (Rear wheel)",
+      "festener" : null,
+      "tool" : "Wrench 12 mm",
+      "treatment" : null,
+      "location" : "Rear wheel / Chain adjuster",
+      "manualPage" : 4,
+      "aliases" : [ "kontrnakrętka naciągu", "naciąg łańcucha" ]
+    }, {
+      "part" : "REAR AXLE",
+      "torqueNm" : 105,
+      "note" : null,
+      "source" : "Yamaha Tenere 700 Service Manual (Rear wheel)",
+      "festener" : null,
+      "tool" : "Hex 27 mm",
+      "treatment" : null,
+      "location" : "Rear wheel / Axle",
+      "manualPage" : 4,
+      "aliases" : [ "oś tylna", "śruba osi tylnej" ]
+    }, {
+      "part" : "MIRROR LOCKNUT",
+      "torqueNm" : 23,
+      "note" : null,
+      "source" : "Yamaha Tenere 700 Service Manual (Handlebar)",
+      "festener" : null,
+      "tool" : "Wrench 17 mm",
+      "treatment" : null,
+      "location" : "Controls / Mirrors",
+      "manualPage" : 4,
+      "aliases" : [ "kontrnakrętka lusterka", "mocowanie lusterka" ]
+    }, {
+      "part" : "HEADLIGHT BRACKET BOLT",
+      "torqueNm" : 10,
+      "note" : null,
+      "source" : "Yamaha Tenere 700 Service Manual (Lighting)",
+      "festener" : null,
+      "tool" : "Hex 5 mm",
+      "treatment" : null,
+      "location" : "Lighting / Headlight",
+      "manualPage" : 4,
+      "aliases" : [ "śruba reflektora", "mocowanie lampy" ]
     } ]
   } ]
 }

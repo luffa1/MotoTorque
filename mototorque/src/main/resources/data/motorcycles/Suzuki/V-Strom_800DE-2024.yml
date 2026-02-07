@@ -11,7 +11,7 @@ torqueSpecs:
     tool: "Hex 14 mm"
     treatment: "Suzuki Thread Lock / Loctite 243"
     location: "Chassis / Side stand"
-    manualPage: 6-36
+    manualPage: 6
     aliases:
       - "stopka"
       - "boczna stopka"
@@ -25,7 +25,7 @@ torqueSpecs:
     tool: "Hex 12 mm"
     treatment: null
     location: "Front wheel / Brake caliper"
-    manualPage: 5-24
+    manualPage: 5
     aliases:
       - "zacisk przedni"
       - "zacisk hamulca przód"
@@ -39,7 +39,7 @@ torqueSpecs:
     tool: "Hex 6 mm"
     treatment: null
     location: "Front wheel / Axle clamp"
-    manualPage: 5-21
+    manualPage: 5
     aliases:
       - "śruba dociskowa osi"
       - "zacisk osi"
@@ -52,7 +52,7 @@ torqueSpecs:
     tool: "Hex 22 mm"
     treatment: null
     location: "Front wheel / Axle"
-    manualPage: 5-21
+    manualPage: 5
     aliases:
       - "oś przednia"
       - "śruba osi przedniej"
@@ -65,7 +65,7 @@ torqueSpecs:
     tool: "Wrench 12 mm"
     treatment: null
     location: "Rear wheel / Chain adjuster"
-    manualPage: 5-30
+    manualPage: 5
     aliases:
       - "kontrnakrętka naciągu"
       - "naciąg łańcucha"
@@ -78,7 +78,7 @@ torqueSpecs:
     tool: "Hex 27 mm"
     treatment: null
     location: "Rear wheel / Axle"
-    manualPage: 5-30
+    manualPage: 5
     aliases:
       - "oś tylna"
       - "śruba osi tylnej"
@@ -91,7 +91,7 @@ torqueSpecs:
     tool: "Wrench 17 mm"
     treatment: null
     location: "Controls / Mirrors"
-    manualPage: 4-12
+    manualPage: 4
     aliases:
       - "kontrnakrętka lusterka"
       - "mocowanie lusterka"
@@ -104,7 +104,7 @@ torqueSpecs:
     tool: "Hex 5 mm"
     treatment: null
     location: "Lighting / Headlight"
-    manualPage: 7-18
+    manualPage: 7
     aliases:
       - "śruba reflektora"
       - "mocowanie lampy"
