@@ -1,12 +1,12 @@
-const CACHE_STATIC  = 'static-v12';
-const CACHE_DYNAMIC = 'dynamic-v4';
+const CACHE_STATIC  = 'static-v13';
+const CACHE_DYNAMIC = 'dynamic-v5';
 const OFFLINE_PAGE  = '/index.html';
 
 const STATIC_ASSETS = [
   '/',
   OFFLINE_PAGE,
   '/app.js',
-  '/vendor/idb.min.js',
+  '/data/spec-pack.json',
   '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
@@ -28,10 +28,27 @@ const assetOfflineResponse = () =>
   });
 
 self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_STATIC);
+    for (const url of STATIC_ASSETS) {
+      const request = new Request(url, { cache: 'reload' }); // omija 304
+      try {
+        const response = await fetch(request);
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+        await cache.put(request, response);
+      } catch (err) {
+        console.error('Nie mogę dodać do cache:', url, err);
+        throw err; // przerwie instalację i pokaże konkretny adres
+      }
+    }
+  })());
+});
+
+/*self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_STATIC).then(cache => cache.addAll(STATIC_ASSETS)));
   self.skipWaiting();
 });
-
+*/
 self.addEventListener('activate', event => {
   const keep = [CACHE_STATIC, CACHE_DYNAMIC];
   event.waitUntil(

@@ -9,11 +9,11 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TorqueEntry {
-    private String partName;
-    private Integer toruqeNm;
-    private String notes;
+    private String part;
+    private Integer torqueNm;
+    private String note;
     private String source;
-    private String festern;
+    private String festener;
     private String tool;
     private String treatment;
     private String location;

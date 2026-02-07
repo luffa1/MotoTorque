@@ -1,7 +1,11 @@
-const API_SPECS = '/api/motorcycles/specs';
+const SPEC_PACK_URL = './data/spec-pack.json';
 const DB_NAME = 'mototorque';
 const STORE_SPECS = 'specs';
+const USE_BACKEND = false; // true = korzysta z backendu, false = pełny tryb offline
 
+/* ===========================
+   1. IndexedDB cache
+=========================== */
 function openDb() {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open(DB_NAME, 1);
@@ -35,46 +39,133 @@ async function saveSpecsToCache(specs) {
 }
 
 async function getSpecsFromCache() {
-  return runTransaction('readonly', store => {
-    return store.getAll();
-  });
+  return runTransaction('readonly', store => store.getAll());
 }
 
-async function loadSpecs() {
+/* ===========================
+   2. Utilsy do pracy offline
+=========================== */
+const normalize = value =>
+  (value ?? '').toString().toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+const contains = (value, query) =>
+  normalize(value).includes(normalize(query));
+
+const distinct = arr => [...new Set(arr)];
+
+const findMoto = (brand, model, year) =>
+  window.motorcycleSpecs?.find(spec =>
+    spec.brand === brand &&
+    spec.model === model &&
+    String(spec.productionYear) === String(year)
+  );
+
+const localApi = {
+  getBrands(query = '') {
+    return distinct((window.motorcycleSpecs || []).map(s => s.brand))
+      .filter(brand => contains(brand, query))
+      .slice(0, 15);
+  },
+
+  getModels(brand, query = '') {
+    if (!brand) return [];
+    return distinct(window.motorcycleSpecs
+      .filter(s => s.brand === brand)
+      .map(s => s.model))
+      .filter(model => contains(model, query))
+      .slice(0, 15);
+  },
+
+  getYears(brand, model) {
+    if (!brand || !model) return [];
+    return distinct(window.motorcycleSpecs
+      .filter(s => s.brand === brand && s.model === model)
+      .map(s => s.productionYear))
+      .sort((a, b) => a - b);
+  },
+
+  getTorqueAliases({ brand, model, year, query }) {
+    const moto = findMoto(brand, model, year);
+    if (!moto?.torqueEntries) return [];
+    return moto.torqueEntries
+      .flatMap(entry => entry.aliases || [])
+      .filter(alias => contains(alias, query))
+      .slice(0, 10);
+  },
+
+  searchTorque({ brand, model, year, query }) {
+    const moto = findMoto(brand, model, year);
+    if (!moto?.torqueEntries) {
+      return { found: false, specs: [] };
+    }
+    const q = normalize(query);
+    const specs = moto.torqueEntries.filter(entry => {
+      const fields = [
+        entry.partName,
+        entry.threadSize,
+        ...(entry.aliases || []),
+        ...(entry.keywords || [])
+      ];
+      return fields.some(field => normalize(field).includes(q));
+    });
+    return { found: specs.length > 0, specs };
+  },
+
+  getMaintenance({ brand, model, year }) {
+    const moto = findMoto(brand, model, year);
+    return moto?.maintenanceEntries || [];
+  }
+};
+
+/* ===========================
+   3. Ładowanie spec-packa
+=========================== */
+async function loadSpecPack() {
   try {
-    const response = await fetch(API_SPECS);
+    const response = await fetch(SPEC_PACK_URL, { cache: 'no-cache' });
     if (!response.ok) throw new Error('Network error');
 
-    const specs = await response.json();
-    await saveSpecsToCache(specs);
-    window.motorcycleSpecs = specs;
-    console.log('Specyfikacje z sieci', specs);
+    const pack = await response.json();
+    const specsWithId = (pack.motorcycles || []).map((spec, idx) => ({
+      ...spec,
+      id: spec.id ?? `${spec.brand || 'UNK'}|${spec.model || 'UNK'}|${spec.productionYear || 'UNK'}|${idx}`
+    }));
+
+    window.specPack = pack;
+    window.motorcycleSpecs = specsWithId;
+
+    await saveSpecsToCache(specsWithId);
+    console.log('Spec-pack z pliku statycznego', pack);
   } catch (err) {
     console.warn('Offline – korzystam z IndexedDB', err);
     const cached = await getSpecsFromCache();
+    window.specPack = { motorcycles: cached };
     window.motorcycleSpecs = cached;
 
     if (!cached.length) {
-      alert('Brak danych – uruchom aplikację online chociaż raz.');
+      alert('Brak danych w pamięci. Uruchom aplikację online chociaż raz.');
     }
   }
 }
 
 /* rejestracja Service Workera */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(reg => console.log('Service worker ready', reg))
-    .catch(console.error);
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service worker ready', reg))
+      .catch(console.error);
+  });
 }
 
-/* gdy wszystko się załaduje, pobieramy specyfikacje i inicjujemy UI */
+/* start aplikacji */
 window.addEventListener('load', async () => {
-  await loadSpecs();
+  await loadSpecPack();
   initUI();
 });
 
 /* ===========================
-   2. LOGIKA UI
+   4. LOGIKA UI
 =========================== */
 const state = {
   brand: null,
@@ -160,12 +251,19 @@ async function fetchPickerSuggestions(type, query) {
       return showSuggestionMessage(type, 'Najpierw wybierz markę');
     }
 
-    const url = type === 'brand'
-      ? ENDPOINTS.brands(query)
-      : ENDPOINTS.models(query);
+    let data;
+    if (USE_BACKEND) {
+      const url = type === 'brand'
+        ? ENDPOINTS.brands(query)
+        : ENDPOINTS.models(query);
+      const res = await fetch(url);
+      data = await res.json();
+    } else {
+      data = type === 'brand'
+        ? localApi.getBrands(query)
+        : localApi.getModels(state.brand, query);
+    }
 
-    const res  = await fetch(url);
-    const data = await res.json();
     renderPickerSuggestions(type, data);
   } catch {
     showSuggestionMessage(type, 'Błąd połączenia');
@@ -224,8 +322,13 @@ async function fetchYears() {
   }
 
   try {
-    const res   = await fetch(ENDPOINTS.years());
-    const years = await res.json();
+    let years;
+    if (USE_BACKEND) {
+      const res = await fetch(ENDPOINTS.years());
+      years = await res.json();
+    } else {
+      years = localApi.getYears(state.brand, state.model);
+    }
 
     if (!years.length) {
       return showSuggestionMessage('year', 'Brak danych roczników');
@@ -287,9 +390,20 @@ function handleTorqueInput() {
 
 async function fetchTorqueSuggestions(query) {
   try {
-    const res  = await fetch(ENDPOINTS.torqueSuggestions(query));
-    const data = await res.json();
-    renderTorqueSuggestions(data);
+    let items;
+    if (USE_BACKEND) {
+      const res = await fetch(ENDPOINTS.torqueSuggestions(query));
+      items = await res.json();
+    } else {
+      items = localApi.getTorqueAliases({
+        brand: state.brand,
+        model: state.model,
+        year: pickers.year.input.value,
+        query
+      });
+    }
+
+    renderTorqueSuggestions(items);
   } catch {
     toggleTorqueSuggestions(false);
   }
@@ -338,10 +452,24 @@ async function searchTorque() {
   fallbackBox.innerHTML = '';
 
   try {
-    const res  = await fetch(ENDPOINTS.torque(query));
-    const data = await res.json();
+    let data;
 
-    if (!res.ok || !data.found) {
+    if (USE_BACKEND) {
+      const res = await fetch(ENDPOINTS.torque(query));
+      data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || 'Brak danych – spróbuj innej frazy');
+      }
+    } else {
+      data = localApi.searchTorque({
+        brand: state.brand,
+        model: state.model,
+        year: pickers.year.input.value,
+        query
+      });
+    }
+
+    if (!data.found || !data.specs?.length) {
       errorBox.textContent = 'Brak danych – spróbuj innej frazy';
       errorBox.classList.remove('hidden');
 
@@ -353,10 +481,6 @@ async function searchTorque() {
         fallbackBox.classList.remove('hidden');
       }
       return;
-    }
-
-    if (!data.specs || !data.specs.length) {
-      throw new Error('Brak danych – spróbuj innej frazy');
     }
 
     resultBox.innerHTML = data.specs.map(item => `
@@ -399,10 +523,20 @@ async function loadMaintenance() {
   listBox.innerHTML = '';
 
   try {
-    const res  = await fetch(ENDPOINTS.maintenance());
-    if (!res.ok) throw new Error();
+    let data;
 
-    const data = await res.json();
+    if (USE_BACKEND) {
+      const res = await fetch(ENDPOINTS.maintenance());
+      if (!res.ok) throw new Error();
+      data = await res.json();
+    } else {
+      data = localApi.getMaintenance({
+        brand: state.brand,
+        model: state.model,
+        year: pickers.year.input.value
+      });
+    }
+
     if (!data.length) {
       errorBox.textContent = 'Brak danych eksploatacyjnych dla tego motocykla.';
       errorBox.classList.remove('hidden');
