@@ -5,7 +5,7 @@ const USE_BACKEND = true;   // true = korzysta z backendu, false = pełny tryb o
 
 const API_BASE = window.location.hostname === 'localhost'
   ? 'http://localhost:8080'                  // backend lokalny (dev)
-  : 'https://mototorque-backend.onrender.com'; // <-- podmień na URL swojego backendu
+  : 'https://mototorque.onrender.com';
 
 /* ===========================
    1. IndexedDB cache
