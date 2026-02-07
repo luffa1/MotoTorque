@@ -3,16 +3,16 @@ const CACHE_DYNAMIC = 'dynamic-v5';
 const OFFLINE_PAGE  = '/index.html';
 
 const STATIC_ASSETS = [
-  '/',
-  OFFLINE_PAGE,
-  '/app.js',
-  '/data/spec-pack.json',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/screenshots/home-narrow.png',
-  '/screenshots/home-wide.png'
-];
+    './',
+    './index.html',
+    './app.js',
+    './data/spec-pack.json',
+    './manifest.json',
+    './icons/icon-192.png',
+    './icons/icon-512.png',
+    './screenshots/home-narrow.png',
+    './screenshots/home-wide.png'
+  ];
 
 const apiOfflineResponse = () =>
   new Response(JSON.stringify({ error: 'offline' }), {
