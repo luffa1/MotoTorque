@@ -502,7 +502,7 @@ async function searchTorque() {
 
     resultBox.classList.remove('hidden');
   } catch (err) {
-    errorBox.textContent = err.message או 'Błąd połączenia';
+    errorBox.textContent = err.message || "Błąd połączenia";
     errorBox.classList.remove('hidden');
   }
 }
