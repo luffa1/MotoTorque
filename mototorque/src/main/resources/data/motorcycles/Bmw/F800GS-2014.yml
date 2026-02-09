@@ -31,10 +31,10 @@ torqueSpecs:
       - "zacisk osi"
 
   - part: "FRONT AXLE"
-    torqueNm: 50
+    torqueNm: 30
     note: null
     source: "BMW F800GS Service Data (series K72)"
-    fastener: "Axle nut"
+    fastener: "M14 x 1.5"
     tool: "Hex 27 mm"
     treatment: null
     location: "Front wheel / Axle"
@@ -42,6 +42,8 @@ torqueSpecs:
     aliases:
       - "oś przednia"
       - "śruba osi przedniej"
+      - "nakrętka osi przedniej"
+      - "Axle nut"
 
   - part: "REAR AXLE"
     torqueNm: 100
@@ -55,12 +57,27 @@ torqueSpecs:
     aliases:
       - "oś tylna"
       - "śruba osi tylnej"
+      - "nakrętka osi tylnej"
+
+  - part: "WHEEL-SPEED SENSOR"
+    torqueNm: 8
+    note: null
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "M6 x 16"
+    tool: "T30"
+    treatment: null
+    location: "Rear wheel / Axle"
+    manualPage: null
+    aliases:
+      - "śruba czujnika ABS tył"
+      - "wheel-speed sensor"
+      - "czujnik prędkości"
 
   - part: "FRONT SPROCKET BOLT"
     torqueNm: 50
     note: "Use medium strength thread locking compound"
     source: "BMW F800GS Service Data (series K72)"
-    fastener: "Sprocket bolt"
+    fastener: "M10 x 1.5 x 35"
     tool: "Hex 10 mm"
     treatment: "Loctite 243 / Suzuki/Yamaha equivalent"
     location: "Final drive / Front sprocket"
@@ -69,7 +86,7 @@ torqueSpecs:
       - "śruba zębatki przedniej"
       - "front sprocket bolt"
 
-  - part: "REAR SPROCKET NUTS"
+  - part: "REAR CHAIN SPROCKET NUTS"
     torqueNm: 10
     note: "Plus additional 90° angle; replace nuts and use mechanical thread lock"
     source: "BMW F800GS Service Data (series K72)"
@@ -79,14 +96,14 @@ torqueSpecs:
     location: "Final drive / Rear sprocket"
     manualPage: null
     aliases:
-      - "kontrnakrętki zębatki tylnej"
-      - "rear sprocket nuts"
+      - "nakrętka zębatki tylnej"
+      - "rear chain sprocket nuts"
 
   - part: "ENGINE OIL DRAIN PLUG"
     torqueNm: 40
     note: null
     source: "BMW F800GS Service Data (series K72)"
-    fastener: "Drain plug"
+    fastener: "M24 x 2"
     tool: "Hex 14 mm"
     treatment: null
     location: "Engine / Oil pan"
@@ -96,7 +113,7 @@ torqueSpecs:
       - "oil drain plug"
 
   - part: "OIL FILTER COVER / FILTER BOLT"
-    torqueNm: 10
+    torqueNm: 14
     note: null
     source: "BMW F800GS Service Data (series K72)"
     fastener: "Filter cover bolt"
@@ -109,10 +126,10 @@ torqueSpecs:
       - "oil filter bolt"
 
   - part: "SPARK PLUG"
-    torqueNm: 20
+    torqueNm: 18
     note: null
     source: "BMW F800GS Service Data (series K72)"
-    fastener: "Spark plug"
+    fastener: "M12 x 1.25"
     tool: "Spark plug socket"
     treatment: null
     location: "Engine / Spark plug"
@@ -125,7 +142,7 @@ torqueSpecs:
     torqueNm: 10
     note: "Tighten in criss-cross pattern"
     source: "BMW F800GS Service Data (series K72)"
-    fastener: "M6"
+    fastener: "M6 x 20"
     tool: "Hex 6 mm"
     treatment: null
     location: "Engine / Cam cover"
@@ -133,19 +150,48 @@ torqueSpecs:
     aliases:
       - "śruby pokrywy zaworów"
       - "cam cover bolts"
+      - "valve cover"
 
-  - part: "COOLANT PUMP DRAIN PLUG"
+  - part: "COOLANT DRAIN PLUG"
     torqueNm: 10
     note: null
     source: "BMW F800GS Service Data (series K72)"
-    fastener: "Drain plug"
+    fastener: "M6 x 16"
     tool: "Hex 8 mm"
     treatment: null
     location: "Cooling system / Pump"
     manualPage: null
     aliases:
-      - "śruba spustowa pompy chłodzenia"
-      - "coolant pump drain plug"
+      - "śruba spustowa płynu chłodzenia"
+      - "coolant drain plug"
+
+  - part: "SIDE STAND / LOCK NUT"
+    torqueNm: 38
+    note: "Lock nut M5: 5 Nm"
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "M10, M5"
+    tool: "Hex 8 mm"
+    treatment: "Fluid: Unirex S2"
+    location: "Side stand"
+    manualPage: null
+    aliases:
+      - "śruba stópki bocznej"
+      - "stópka boczna"
+      - "nakrętka kontrujaca stópki bocznej"
+      - "Side stand"
+
+  - part: "GEARSHIFT PEDAL LEVER"
+    torqueNm: 8
+    note: null
+    source: "BMW F800GS Service Data (series K72)"
+    fastener: "M6 x 25"
+    tool: "Hex 8 mm"
+    treatment: null
+    location: "Gearshift lever"
+    manualPage: null
+    aliases:
+      - "dźwignia zmiany biegów"
+      - "gearshift lever"
 
 maintenanceSpecs:
   - section: "CHAIN"

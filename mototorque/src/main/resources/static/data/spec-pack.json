@@ -1,5 +1,5 @@
 {
-  "version" : "2026-02-07",
+  "version" : "2026-02-09",
   "motorcycles" : [ {
     "id" : null,
     "brand" : "BMW",
@@ -135,7 +135,7 @@
       "aliases" : [ "śruba dociskowa osi", "zacisk osi" ]
     }, {
       "part" : "FRONT AXLE",
-      "torqueNm" : 50,
+      "torqueNm" : 30,
       "note" : null,
       "source" : "BMW F800GS Service Data (series K72)",
       "festener" : null,
@@ -143,7 +143,7 @@
       "treatment" : null,
       "location" : "Front wheel / Axle",
       "manualPage" : null,
-      "aliases" : [ "oś przednia", "śruba osi przedniej" ]
+      "aliases" : [ "oś przednia", "śruba osi przedniej", "nakrętka osi przedniej", "Axle nut" ]
     }, {
       "part" : "REAR AXLE",
       "torqueNm" : 100,
@@ -154,7 +154,18 @@
       "treatment" : null,
       "location" : "Rear wheel / Axle",
       "manualPage" : null,
-      "aliases" : [ "oś tylna", "śruba osi tylnej" ]
+      "aliases" : [ "oś tylna", "śruba osi tylnej", "nakrętka osi tylnej" ]
+    }, {
+      "part" : "WHEEL-SPEED SENSOR",
+      "torqueNm" : 8,
+      "note" : null,
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "T30",
+      "treatment" : null,
+      "location" : "Rear wheel / Axle",
+      "manualPage" : null,
+      "aliases" : [ "śruba czujnika ABS tył", "wheel-speed sensor", "czujnik prędkości" ]
     }, {
       "part" : "FRONT SPROCKET BOLT",
       "torqueNm" : 50,
@@ -167,7 +178,7 @@
       "manualPage" : null,
       "aliases" : [ "śruba zębatki przedniej", "front sprocket bolt" ]
     }, {
-      "part" : "REAR SPROCKET NUTS",
+      "part" : "REAR CHAIN SPROCKET NUTS",
       "torqueNm" : 10,
       "note" : "Plus additional 90° angle; replace nuts and use mechanical thread lock",
       "source" : "BMW F800GS Service Data (series K72)",
@@ -176,7 +187,7 @@
       "treatment" : "Thread lock + angle torque",
       "location" : "Final drive / Rear sprocket",
       "manualPage" : null,
-      "aliases" : [ "kontrnakrętki zębatki tylnej", "rear sprocket nuts" ]
+      "aliases" : [ "nakrętka zębatki tylnej", "rear chain sprocket nuts" ]
     }, {
       "part" : "ENGINE OIL DRAIN PLUG",
       "torqueNm" : 40,
@@ -190,7 +201,7 @@
       "aliases" : [ "śruba spustowa oleju", "oil drain plug" ]
     }, {
       "part" : "OIL FILTER COVER / FILTER BOLT",
-      "torqueNm" : 10,
+      "torqueNm" : 14,
       "note" : null,
       "source" : "BMW F800GS Service Data (series K72)",
       "festener" : null,
@@ -201,7 +212,7 @@
       "aliases" : [ "filtr oleju", "oil filter bolt" ]
     }, {
       "part" : "SPARK PLUG",
-      "torqueNm" : 20,
+      "torqueNm" : 18,
       "note" : null,
       "source" : "BMW F800GS Service Data (series K72)",
       "festener" : null,
@@ -220,9 +231,9 @@
       "treatment" : null,
       "location" : "Engine / Cam cover",
       "manualPage" : null,
-      "aliases" : [ "śruby pokrywy zaworów", "cam cover bolts" ]
+      "aliases" : [ "śruby pokrywy zaworów", "cam cover bolts", "valve cover" ]
     }, {
-      "part" : "COOLANT PUMP DRAIN PLUG",
+      "part" : "COOLANT DRAIN PLUG",
       "torqueNm" : 10,
       "note" : null,
       "source" : "BMW F800GS Service Data (series K72)",
@@ -231,7 +242,7 @@
       "treatment" : null,
       "location" : "Cooling system / Pump",
       "manualPage" : null,
-      "aliases" : [ "śruba spustowa pompy chłodzenia", "coolant pump drain plug" ]
+      "aliases" : [ "śruba spustowa płynu chłodzenia", "coolant drain plug" ]
     } ]
   }, {
     "id" : null,
