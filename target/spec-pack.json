@@ -243,6 +243,28 @@
       "location" : "Cooling system / Pump",
       "manualPage" : null,
       "aliases" : [ "śruba spustowa płynu chłodzenia", "coolant drain plug" ]
+    }, {
+      "part" : "SIDE STAND / LOCK NUT",
+      "torqueNm" : 38,
+      "note" : "Lock nut M5: 5 Nm",
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 8 mm",
+      "treatment" : "Fluid: Unirex S2",
+      "location" : "Side stand",
+      "manualPage" : null,
+      "aliases" : [ "śruba stópki bocznej", "stópka boczna", "nakrętka kontrujaca stópki bocznej", "Side stand" ]
+    }, {
+      "part" : "GEARSHIFT PEDAL LEVER",
+      "torqueNm" : 8,
+      "note" : null,
+      "source" : "BMW F800GS Service Data (series K72)",
+      "festener" : null,
+      "tool" : "Hex 8 mm",
+      "treatment" : null,
+      "location" : "Gearshift lever",
+      "manualPage" : null,
+      "aliases" : [ "dźwignia zmiany biegów", "gearshift lever" ]
     } ]
   }, {
     "id" : null,
