@@ -3,137 +3,118 @@ model: "Tenere 700 World Raid"
 productionYear: 2024
 
 torqueSpecs:
-  - part: "SIDE STAND MOUNTING BOLT"
-    torqueNm: 40
-    note: "Apply thread locking agent"
-    source: "Yamaha Tenere 700 Service Manual (Chassis)"
-    fastener: "M10"
-    tool: "Hex 14 mm"
-    treatment: "Yamaha Bond / Loctite 243"
-    location: "Chassis / Side stand"
-    manualPage: 4
-    aliases:
-      - "stopka"
-      - "boczna stopka"
-      - "side stand bolt"
-
   - part: "FRONT BRAKE CALIPER TO FORK"
     torqueNm: 40
-    note: "Tighten both sides evenly"
-    source: "Yamaha Tenere 700 Service Manual (Front wheel)"
+    note: "Tighten both calipers evenly"
+    source: "Yamaha Tenere 700 Service Manual 2024"
     fastener: "M10"
     tool: "Hex 12 mm"
     treatment: null
     location: "Front wheel / Brake caliper"
-    manualPage: 4
+    manualPage: 81
     aliases:
       - "zacisk przedni"
       - "zacisk hamulca przód"
       - "front brake caliper"
 
   - part: "FRONT AXLE PINCH BOLT"
-    torqueNm: 23
+    torqueNm: 21
     note: "Tighten alternately"
-    source: "Yamaha Tenere 700 Service Manual (Front wheel)"
+    source: "Yamaha Tenere 700 Service Manual 2024"
     fastener: "M8"
     tool: "Hex 6 mm"
     treatment: null
     location: "Front wheel / Axle clamp"
-    manualPage: 4
+    manualPage: 81
     aliases:
       - "śruba dociskowa osi"
       - "zacisk osi"
 
   - part: "FRONT AXLE"
-    torqueNm: 90
+    torqueNm: 72
     note: null
-    source: "Yamaha Tenere 700 Service Manual (Front wheel)"
+    source: "Yamaha Tenere 700 Service Manual 2024"
     fastener: "Axle shaft"
     tool: "Hex 22 mm"
     treatment: null
     location: "Front wheel / Axle"
-    manualPage: 4
+    manualPage: 81
     aliases:
       - "oś przednia"
       - "śruba osi przedniej"
+      - "Axle shaft"
 
-  - part: "CHAIN ADJUSTER LOCKNUT"
-    torqueNm: 16
-    note: null
-    source: "Yamaha Tenere 700 Service Manual (Rear wheel)"
-    fastener: "M8"
-    tool: "Wrench 12 mm"
-    treatment: null
-    location: "Rear wheel / Chain adjuster"
-    manualPage: 4
-    aliases:
-      - "kontrnakrętka naciągu"
-      - "naciąg łańcucha"
-
-  - part: "REAR AXLE"
+  - part: "REAR AXLE / LOCKNUT"
     torqueNm: 105
-    note: null
-    source: "Yamaha Tenere 700 Service Manual (Rear wheel)"
+    note: "Locknut 16 Nm"
+    source: "Yamaha Tenere 700 Service Manual 2024"
     fastener: "Axle shaft"
     tool: "Hex 27 mm"
     treatment: null
     location: "Rear wheel / Axle"
-    manualPage: 4
+    manualPage: 81
     aliases:
       - "oś tylna"
       - "śruba osi tylnej"
+      - "Axle shaft"
 
-  - part: "MIRROR LOCKNUT"
-    torqueNm: 23
+  - part: "ENGINE OIL DRAIN PLUG"
+    torqueNm: 43
     note: null
-    source: "Yamaha Tenere 700 Service Manual (Handlebar)"
-    fastener: "M10"
-    tool: "Wrench 17 mm"
+    source: "Yamaha Tenere 700 Service Manual 2024"
+    fastener: "M14"
+    tool: "Hex 14 mm"
     treatment: null
-    location: "Controls / Mirrors"
-    manualPage: 4
+    location: "Engine / Oil pan"
+    manualPage: 81
     aliases:
-      - "kontrnakrętka lusterka"
-      - "mocowanie lusterka"
+      - "śruba spustowa oleju"
+      - "oil drain plug"
 
-  - part: "HEADLIGHT BRACKET BOLT"
-    torqueNm: 10
+  - part: "OIL FILTER"
+    torqueNm: 17
     note: null
-    source: "Yamaha Tenere 700 Service Manual (Lighting)"
-    fastener: "M6"
-    tool: "Hex 5 mm"
-    treatment: null
-    location: "Lighting / Headlight"
-    manualPage: 4
+    source: "Yamaha Tenere 700 Service Manual 2024"
+    fastener: "Oil filter"
+    tool: "Oil filter wrench"
+    treatment: "Oil on seal"
+    location: "Engine / Oil filter"
+    manualPage: 81
     aliases:
-      - "śruba reflektora"
-      - "mocowanie lampy"
+      - "filtr oleju"
+      - "oil filter"
+
+  - part: "SPARK PLUG"
+    torqueNm: 13
+    note: null
+    source: "Yamaha Tenere 700 Service Manual 2024"
+    fastener: "M10 x 1.0"
+    tool: "Spark plug socket"
+    treatment: null
+    location: "Engine / Spark plug"
+    manualPage: 81
+    aliases:
+      - "świeca zapłonowa"
+      - "spark plug"
 
 maintenanceSpecs:
   - section: "CHAIN"
     name: "Chain slack"
-    value: "45–50"
+    value: "40-45"
     unit: "mm"
     note: "Bike on side stand, no load, measure at tightest point"
     extra: null
 
-  - section: "CHAIN"
-    name: "Chain wear limit"
-    value: "-"
-    unit: null
-    note: "Replace chain if stiff links or excessive elongation observed"
-    extra: null
-
   - section: "TIRES"
     name: "Front tire pressure (solo)"
-    value: "2.0"
+    value: "2.2"
     unit: "bar"
     note: "Cold tyres"
     extra: null
 
   - section: "TIRES"
     name: "Rear tire pressure (solo)"
-    value: "2.2"
+    value: "2.5"
     unit: "bar"
     note: "Cold tyres"
     extra: null
@@ -141,6 +122,13 @@ maintenanceSpecs:
   - section: "TIRES"
     name: "Rear tire pressure (with passenger / luggage)"
     value: "2.5"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+
+  - section: "TIRES"
+    name: "Front/Rear tire pressure Off-road)"
+    value: "2.0"
     unit: "bar"
     note: "Cold tyres"
     extra: null
