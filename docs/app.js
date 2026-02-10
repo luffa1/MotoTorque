@@ -7,6 +7,8 @@ const API_BASE = window.location.hostname === 'localhost'
   ? 'http://localhost:8080'                  // backend lokalny (dev)
   : 'https://mototorque.onrender.com';
 
+const sortAlphabetically = list => [...list].sort((a, b) => a.localeCompare(b, "pl", {sensitivity: 'base'}));
+
 /* ===========================
    1. IndexedDB cache
 =========================== */
@@ -67,18 +69,18 @@ const findMoto = (brand, model, year) =>
 
 const localApi = {
   getBrands(query = '') {
-    return distinct((window.motorcycleSpecs || []).map(s => s.brand))
+    return sortAlphabetically(distinct((window.motorcycleSpecs || []).map(s => s.brand))
       .filter(brand => contains(brand, query))
-      .slice(0, 15);
+      ).slice(0, 20);
   },
 
   getModels(brand, query = '') {
     if (!brand) return [];
-    return distinct(window.motorcycleSpecs
+    return sortAlphabetically (distinct(window.motorcycleSpecs
       .filter(s => s.brand === brand)
       .map(s => s.model))
       .filter(model => contains(model, query))
-      .slice(0, 15);
+      ).slice(0, 20);
   },
 
   getYears(brand, model) {
@@ -227,6 +229,18 @@ function initUI() {
   torqueInput.addEventListener('input', handleTorqueInput);
   pickers.year.input.addEventListener('click', openYearList);
 
+  pickers.brand.input.addEventListener('focus', () => {
+    fetchPickerSuggestions('brand', pickers.brand.input.value.trim());
+  });
+
+  pickers.model.input.addEventListener('focus', () => {
+    if (!state.brand){
+        showSuggestionMessage('model', 'Najpierw wybierz markę');
+        return;
+    }
+    fetchPickerSuggestions('model', pickers.model.input.value.trim());
+  });
+
   document.addEventListener('click', event => {
     ['brand', 'model', 'year'].forEach(type => {
       const wrapper = document.getElementById(`${type}Wrapper`);
@@ -248,8 +262,7 @@ function initUI() {
 
 /* ---- pickery ---- */
 function handleInput(type) {
-  const { input } = pickers[type];
-  const value = input.value.trim();
+  const value = pickers[type].input.value.trim();
 
   clearTimeout(state.timers[type]);
 
@@ -285,7 +298,7 @@ async function fetchPickerSuggestions(type, query) {
           ? localApi.getBrands(query)
           : localApi.getModels(state.brand, query));
 
-    renderPickerSuggestions(type, data);
+    renderPickerSuggestions(type, sortAlphabetically(data));
   } catch {
     showSuggestionMessage(type, 'Błąd połączenia');
   }
