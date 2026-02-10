@@ -229,16 +229,22 @@ function initUI() {
   torqueInput.addEventListener('input', handleTorqueInput);
   pickers.year.input.addEventListener('click', openYearList);
 
-  pickers.brand.input.addEventListener('focus', () => {
-    fetchPickerSuggestions('brand', pickers.brand.input.value.trim());
-  });
+  pickers.brand.input.addEventListener('focus', () => handleInput('brand'));
+  pickers.brand.input.addEventListener('click',  () => handleInput('brand'));
 
   pickers.model.input.addEventListener('focus', () => {
-    if (!state.brand){
-        showSuggestionMessage('model', 'Najpierw wybierz markę');
-        return;
+    if (!state.brand) {
+      showSuggestionMessage('model', 'Najpierw wybierz markę');
+      return;
     }
-    fetchPickerSuggestions('model', pickers.model.input.value.trim());
+    handleInput('model');
+  });
+  pickers.model.input.addEventListener('click', () => {
+    if (!state.brand) {
+      showSuggestionMessage('model', 'Najpierw wybierz markę');
+      return;
+    }
+    handleInput('model');
   });
 
   document.addEventListener('click', event => {
