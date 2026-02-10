@@ -29,6 +29,7 @@ torqueSpecs:
     aliases:
       - "śruba dociskowa osi"
       - "zacisk osi"
+      - "front axle pinch bolt"
 
   - part: "FRONT AXLE"
     torqueNm: 72
@@ -42,7 +43,7 @@ torqueSpecs:
     aliases:
       - "oś przednia"
       - "śruba osi przedniej"
-      - "Axle shaft"
+      - "front axle shaft"
 
   - part: "REAR AXLE / LOCKNUT"
     torqueNm: 105
@@ -56,7 +57,7 @@ torqueSpecs:
     aliases:
       - "oś tylna"
       - "śruba osi tylnej"
-      - "Axle shaft"
+      - "rear axle"
 
   - part: "ENGINE OIL DRAIN PLUG"
     torqueNm: 43
@@ -70,6 +71,7 @@ torqueSpecs:
     aliases:
       - "śruba spustowa oleju"
       - "oil drain plug"
+      - "engine oil drain plug"
 
   - part: "OIL FILTER"
     torqueNm: 17
@@ -127,7 +129,7 @@ maintenanceSpecs:
     extra: null
 
   - section: "TIRES"
-    name: "Front/Rear tire pressure Off-road)"
+    name: "Front/Rear tire pressure Off-road"
     value: "2.0"
     unit: "bar"
     note: "Cold tyres"

@@ -29,6 +29,7 @@ torqueSpecs:
     aliases:
       - "śruba dociskowa osi"
       - "zacisk osi"
+      - "front axle pinch bolt"
 
   - part: "FRONT AXLE"
     torqueNm: 30
@@ -43,7 +44,7 @@ torqueSpecs:
       - "oś przednia"
       - "śruba osi przedniej"
       - "nakrętka osi przedniej"
-      - "Axle nut"
+      - "Front axle nut"
 
   - part: "REAR AXLE"
     torqueNm: 100
@@ -58,6 +59,7 @@ torqueSpecs:
       - "oś tylna"
       - "śruba osi tylnej"
       - "nakrętka osi tylnej"
+      - "rear axle"
 
   - part: "WHEEL-SPEED SENSOR"
     torqueNm: 8
