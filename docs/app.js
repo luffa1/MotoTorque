@@ -276,7 +276,9 @@ async function fetchPickerSuggestions(type, query) {
       return showSuggestionMessage(type, 'Najpierw wybierz markę');
     }
 
-    const data = USE_BACKEND
+    const useBackendNow = USE_BACKEND && query.length > 0;
+
+    const data = useBackendNow
       ? await tryBackendOrLocal(
           async () => {
             const url = type === 'brand'
