@@ -262,16 +262,12 @@ function initUI() {
 
 /* ---- pickery ---- */
 function handleInput(type) {
-  const value = pickers[type].input.value.trim();
-
   clearTimeout(state.timers[type]);
 
-  if (!value) {
-    toggleSuggestions(type, false);
-    return;
-  }
-
-  state.timers[type] = setTimeout(() => fetchPickerSuggestions(type, value), 200);
+  state.timers[type] = setTimeout(() => {
+    const value = pickers[type].input.value.trim();
+    fetchPickerSuggestions(type, value);
+  }, 200);
 }
 
 async function fetchPickerSuggestions(type, query) {
