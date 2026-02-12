@@ -1,14 +1,14 @@
-brand: "Suzuki"
-model: "V-Strom 800DE"
+brand: "Honda"
+model: "XL750 Transalp"
 productionYear: 2024
 
 torqueSpecs:
   - part: "FRONT BRAKE CALIPER TO FORK"
-    torqueNm: 26
-    note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
-    fastener: "Caliper mounting bolt"
-    tool: "Socket"
+    torqueNm: 20
+    note: "Tighten evenly"
+    source: "Honda XL750 Transalp Service Manual (2024)"
+    fastener: "Mounting bolts"
+    tool: "Socket 12 mm"
     treatment: null
     location: "Front wheel / Brake caliper"
     manualPage: null
@@ -18,11 +18,11 @@ torqueSpecs:
       - "front brake caliper"
 
   - part: "FRONT AXLE PINCH BOLT"
-    torqueNm: 23
-    note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
-    fastener: "Axle pinch bolt"
-    tool: "Hex socket"
+    torqueNm: 22
+    note: "Tighten alternately"
+    source: "Honda XL750 Transalp Service Manual (2024)"
+    fastener: "Axle pinch bolts"
+    tool: "Hex 6 mm"
     treatment: null
     location: "Front wheel / Axle clamp"
     manualPage: null
@@ -31,26 +31,25 @@ torqueSpecs:
       - "zacisk osi"
 
   - part: "FRONT AXLE"
-    torqueNm: 100
+    torqueNm: 65
     note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
+    source: "Honda XL750 Transalp Service Manual (2024)"
     fastener: "Front axle"
-    tool: "Socket"
-    treatment: "Grease on shaft"
+    tool: "Hex 17 mm"
+    treatment: null
     location: "Front wheel / Axle"
     manualPage: null
     aliases:
       - "oś przednia"
       - "śruba osi przedniej"
       - "nakrętka osi przedniej"
-      - "Front axle nut"
 
   - part: "REAR AXLE"
     torqueNm: 100
     note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
+    source: "Honda XL750 Transalp Service Manual (2024)"
     fastener: "Rear axle nut"
-    tool: "Socket"
+    tool: "Socket 24 mm"
     treatment: null
     location: "Rear wheel / Axle"
     manualPage: null
@@ -58,12 +57,24 @@ torqueSpecs:
       - "oś tylna"
       - "śruba osi tylnej"
       - "nakrętka osi tylnej"
-      - "Rear axle nut"
+
+  - part: "REAR BRAKE CALIPER BRACKET BOLT"
+    torqueNm: 27
+    note: null
+    source: "Honda XL750 Transalp Service Manual (2024)"
+    fastener: "Caliper bracket bolt"
+    tool: "Socket 14 mm"
+    treatment: null
+    location: "Rear wheel / Brake caliper"
+    manualPage: null
+    aliases:
+      - "zacisk tylny"
+      - "zacisk hamulca tył"
 
   - part: "DRIVE CHAIN ADJUSTING BOLT LOCKNUT"
-    torqueNm: 22
+    torqueNm: 27
     note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
+    source: "Honda XL750 Transalp Service Manual (2024)"
     fastener: "chain tension locknut"
     tool: "Socket"
     treatment: null
@@ -75,10 +86,37 @@ torqueSpecs:
       - "nakrętka napinacza"
       - "chain tension locknut"
 
-  - part: "WHEEL-SPEED SENSOR"
-    torqueNm: 10
+  - part: "DRIVE SPROCKET BOLT"
+    torqueNm: 100
+    note: "Self-locknut. Apply engine oil to the threads"
+    source: "Honda XL750 Transalp Service Manual (2024)"
+    fastener: "Drive sprocket nut"
+    tool: "Socket"
+    treatment: "Stake nut after tightening"
+    location: "Final drive / Front sprocket"
+    manualPage: null
+    aliases:
+      - "śruba koła napędowego"
+      - "drive sprocket bolt"
+
+  - part: "DRIVEN SPROCKET NUT"
+    torqueNm: 100
     note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
+    source: "Honda XL750 Transalp Service Manual (2024)"
+    fastener: "Rear sprocket nut"
+    tool: "Socket"
+    treatment: "Thread lock"
+    location: "Final drive / Rear sprocket"
+    manualPage: null
+    aliases:
+      - "nakrętka zębatki tylnej"
+      - "rear chain sprocket nut"
+      - "driven sprocket nut"
+
+  - part: "WHEEL-SPEED SENSOR"
+    torqueNm: 12
+    note: null
+    source: "Honda XL750 Transalp Service Manual (2024)"
     fastener: "ABS sensor bolt"
     tool: "Hex"
     treatment: null
@@ -89,38 +127,12 @@ torqueSpecs:
       - "wheel-speed sensor"
       - "czujnik prędkości"
 
-  - part: "FRONT SPROCKET NUT"
-    torqueNm: 145
-    note: "Use new lock washer"
-    source: "Suzuki DL800DE Service Manual (M4)"
-    fastener: "Drive sprocket nut"
-    tool: "Socket"
-    treatment: "Stake nut after tightening"
-    location: "Final drive / Front sprocket"
-    manualPage: null
-    aliases:
-      - "nakrętka zębatki przedniej"
-      - "front sprocket nut"
-
-  - part: "REAR CHAIN SPROCKET NUTS"
-    torqueNm: 60
-    note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
-    fastener: "Rear sprocket nut"
-    tool: "Socket"
-    treatment: "Thread lock"
-    location: "Final drive / Rear sprocket"
-    manualPage: null
-    aliases:
-      - "nakrętka zębatki tylnej"
-      - "rear chain sprocket nuts"
-
   - part: "ENGINE OIL DRAIN PLUG"
-    torqueNm: 23
-    note: "Replace gasket"
-    source: "Suzuki DL800DE Service Manual (M4)"
-    fastener: "Drain plug"
-    tool: "Socket"
+    torqueNm: 30
+    note: "Replace sealing washer"
+    source: "Honda XL750 Transalp Service Manual (2024)"
+    fastener: "Drain bolt"
+    tool: "Socket 12 mm"
     treatment: null
     location: "Engine / Oil pan"
     manualPage: null
@@ -129,11 +141,11 @@ torqueSpecs:
       - "oil drain plug"
 
   - part: "OIL FILTER"
-    torqueNm: 20
-    note: "Lightly oil O-ring"
-    source: "Suzuki DL800DE Service Manual (M4)"
+    torqueNm: 26
+    note: "Lightly oil O-ring before installation"
+    source: "Honda XL750 Transalp Service Manual (2024)"
     fastener: "Oil filter"
-    tool: "Filter wrench"
+    tool: "Oil filter wrench"
     treatment: null
     location: "Engine / Oil filter"
     manualPage: null
@@ -142,9 +154,9 @@ torqueSpecs:
       - "oil filter"
 
   - part: "SPARK PLUG"
-    torqueNm: 11
+    torqueNm: 16
     note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
+    source: "Honda XL750 Transalp Service Manual (2024)"
     fastener: "Spark plug"
     tool: "Spark plug socket"
     treatment: null
@@ -155,9 +167,9 @@ torqueSpecs:
       - "spark plug"
 
   - part: "CAM COVER BOLTS"
-    torqueNm: 10
+    torqueNm: 9
     note: "Tighten diagonally"
-    source: "Suzuki DL800DE Service Manual (M4)"
+    source: "Honda XL750 Transalp Service Manual (2024)"
     fastener: "Cover bolts"
     tool: "Socket"
     treatment: null
@@ -170,7 +182,7 @@ torqueSpecs:
   - part: "COOLANT DRAIN PLUG"
     torqueNm: 11
     note: null
-    source: "Suzuki DL800DE Service Manual (M4)"
+    source: "Honda XL750 Transalp Service Manual (2024)"
     fastener: "Drain bolt"
     tool: "Socket"
     treatment: null
@@ -183,9 +195,9 @@ torqueSpecs:
 maintenanceSpecs:
   - section: "CHAIN"
     name: "Chain slack"
-    value: "30–40"
+    value: "50-55"
     unit: "mm"
-    note: "Bike on side stand, no load, measure at tightest point"
+    note: "Motorcycle on side stand, no load"
     extra: null
 
   - section: "TIRES"
@@ -197,70 +209,42 @@ maintenanceSpecs:
 
   - section: "TIRES"
     name: "Rear tire pressure (solo)"
-    value: "2.50"
+    value: "2.5"
     unit: "bar"
     note: "Cold tyres"
     extra: null
 
   - section: "TIRES"
     name: "Rear tire pressure (with passenger / luggage)"
-    value: "2.80"
+    value: "2.8"
     unit: "bar"
     note: "Cold tyres"
     extra: null
 
   - section: "TIRES"
-    name: "Minimum tread depth"
-    value: "1.6"
+    name: "Minimum front tread depth"
+    value: "1.5"
     unit: "mm"
-    note: null
+    note: "Legal minimum"
     extra: null
 
-  - section: "LIGHTING"
-    name: "Headlight"
-    value: "LED"
-    unit: null
-    note: "Non-serviceable bulb"
-    extra: null
-
-  - section: "LIGHTING"
-    name: "Tail / stop lamp"
-    value: "LED"
-    unit: null
-    note: null
-    extra: null
-
-  - section: "LIGHTING"
-    name: "Turn signals front / rear"
-    value: "LED"
-    unit: null
-    note: null
-    extra: null
-
-  - section: "ELECTRICAL"
-    name: "Battery type"
-    value: "12 V AGM (maintenance free)"
-    unit: null
-    note: null
-    extra: null
-
-  - section: "ELECTRICAL"
-    name: "Fuses"
-    value: "7.5 / 10 / 15 / 20 / 30"
-    unit: "A"
-    note: "Main fuse: 30 A"
+  - section: "TIRES"
+    name: "Minimum rear tread depth"
+    value: "2.0"
+    unit: "mm"
+    note: "Legal minimum"
     extra: null
 
   - section: "ENGINE_OIL"
     name: "Specification"
-    value: "API SG or higher, JASO MA / MA2"
+    value: "API SL or higher, JASO MA2"
     unit: null
     note: null
     extra: null
 
   - section: "ENGINE_OIL"
     name: "Viscosity (recommended)"
-    value: "SAE 10W-40"
+    value: "SAE 10W-30"
     unit: null
     note: null
     extra: null
@@ -274,42 +258,28 @@ maintenanceSpecs:
 
   - section: "COOLANT"
     name: "Type"
-    value: "Ethylene-glycol based (Suzuki Super Long Life)"
+    value: "Pro Honda HP Coolant or equivalent ethylene glycol based"
     unit: null
-    note: "Level between MIN–MAX"
+    note: "Premixed"
     extra: null
 
   - section: "BRAKE_FLUID"
     name: "Fluid"
     value: "DOT 4"
     unit: null
-    note: "Replace every 2 years"
+    note: null
     extra: null
 
   - section: "ADJUSTMENTS"
-    name: "Throttle free play"
-    value: "2–4"
+    name: "Valve clearances (cold)"
+    value: "Inlet: 0.16–0.22 | Exhaust: 0.27–0.33"
     unit: "mm"
-    note: "Measured at throttle grip"
+    note: "Cold engine"
     extra: null
 
-  - section: "ADJUSTMENTS"
-    name: "Clutch lever free play"
-    value: "10–15"
+  - section: "MAINTENANCE"
+    name: "Spark plug gap"
+    value: "0.8–0.9"
     unit: "mm"
-    note: "Measured at lever end"
-    extra: null
-
-  - section: "SUSPENSION"
-    name: "Front suspension adjustment"
-    value: "-"
-    unit: null
-    note: "Compression / rebound / preload adjustable (DE)"
-    extra: null
-
-  - section: "SUSPENSION"
-    name: "Rear preload adjustment"
-    value: "-"
-    unit: null
-    note: "Manual adjuster, no torque setting"
+    note: null
     extra: null
