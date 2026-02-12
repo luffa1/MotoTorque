@@ -3,204 +3,272 @@ model: "F900GS ADV"
 productionYear: 2025
 
 torqueSpecs:
-  - part: "FRONT WHEEL SPEED SENSOR BOLT"
-    torqueNm: 8
-    note: "Replace screw (micro-encapsulated)"
-    source: "BMW F900GS ADV Manual"
-    fastener: "M6×16"
-    tool: "Torx T30"
-    treatment: null
-    location: "Front wheel / Sensor"
-    manualPage: 210
-    aliases:
-      - "czujnik ABS przód"
-      - "sensor koła przedniego"
-
-  - part: "FRONT WHEEL COVER BOLT"
-    torqueNm: 3
-    note: "Replace screw (micro-encapsulated)"
-    source: "BMW F900GS ADV Manual"
-    fastener: "M6×16"
-    tool: "Torx T25"
-    treatment: null
-    location: "Front wheel / Cover"
-    manualPage: 211
-    aliases:
-      - "osłona przedniego koła"
-      - "błotnik przedni"
-
   - part: "FRONT BRAKE CALIPER TO FORK"
     torqueNm: 38
-    note: null
-    source: "BMW F900GS ADV Manual"
-    fastener: "M10×45"
-    tool: "Torx T50"
+    note: "Tighten both calipers evenly"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M10 x 45"
+    tool: "Torx / Hex socket"
     treatment: null
     location: "Front wheel / Brake caliper"
-    manualPage: 212
+    manualPage: null
     aliases:
-      - "zacisk hamulca przód"
       - "zacisk przedni"
+      - "zacisk hamulca przód"
+      - "front brake caliper"
 
   - part: "FRONT AXLE PINCH BOLT"
     torqueNm: 19
-    note: "Tighten six times alternately"
-    source: "BMW F900GS ADV Manual"
-    fastener: "M8×35"
-    tool: "Torx T40"
+    note: "Tighten screws six times in alternate sequence"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M8 x 35"
+    tool: "Hex 6 mm"
     treatment: null
     location: "Front wheel / Axle clamp"
-    manualPage: 212
+    manualPage: null
     aliases:
-      - "zacisk szybkozłączki"
-      - "szybkozłączka przód"
+      - "śruba dociskowa osi"
+      - "zacisk osi"
 
   - part: "FRONT AXLE"
     torqueNm: 50
     note: null
-    source: "BMW F900GS ADV Manual"
-    fastener: "M20×1.5"
-    tool: "Hex 17 mm"
-    treatment: null
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M20 x 1.5"
+    tool: "Torx"
+    treatment: "Lubricant: Unirex N3 wheel bearing grease"
     location: "Front wheel / Axle"
-    manualPage: 213
+    manualPage: null
     aliases:
       - "oś przednia"
       - "śruba osi przedniej"
+      - "nakrętka osi przedniej"
+      - "Front axle nut"
 
-  - part: "CHAIN ADJUSTER LOCKNUT"
-    torqueNm: 19
-    note: null
-    source: "BMW F900GS ADV Manual"
-    fastener: "M8"
-    tool: "Hex 13 mm"
-    treatment: null
-    location: "Rear wheel / Chain adjuster"
-    manualPage: 318
+  - part: "FRONT SPROCKET BOLT"
+    torqueNm: 50
+    note: "Use medium strength thread locking compound"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M10 x 1.5 x 35"
+    tool: "Hex 10 mm"
+    treatment: "Loctite 243"
+    location: "Final drive / Front sprocket"
+    manualPage: null
     aliases:
-      - "kontrnakrętka naciągu"
-      - "naciąg łańcucha"
+      - "śruba zębatki przedniej"
+      - "front sprocket bolt"
 
   - part: "REAR AXLE"
     torqueNm: 125
     note: null
-    source: "BMW F900GS ADV Manual"
-    fastener: "M24×1.5"
-    tool: "Hex 32 mm"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M24 x 1.5"
+    tool: "Hex 24 mm"
     treatment: null
     location: "Rear wheel / Axle"
-    manualPage: 221
+    manualPage: null
     aliases:
-      - "oś szybkozłączka tył"
-      - "rear quick-release axle"
+      - "oś tylna"
+      - "śruba osi tylnej"
+      - "nakrętka osi tylnej"
+      - "rear axle nut"
 
-  - part: "MIRROR LOCKNUT"
-    torqueNm: 22
-    note: "LH thread"
-    source: "BMW F900GS ADV Manual"
-    fastener: "M10×1.25 (LH)"
-    tool: "Wrench 17 mm"
+  - part: "REAR CHAIN SPROCKET NUTS"
+    torqueNm: 10
+    note: "Plus additional 90° angle; replace nuts and use mechanical thread lock"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "Rear sprocket nuts"
+    tool: "Hex 8 mm"
+    treatment: "Thread lock + angle torque"
+    location: "Final drive / Rear sprocket"
+    manualPage: null
+    aliases:
+      - "nakrętka zębatki tylnej"
+      - "rear chain sprocket nuts"
+
+  - part: "WHEEL-SPEED SENSOR"
+    torqueNm: 8
+    note: null
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M6 x 16"
+    tool: "Torx T30"
     treatment: null
-    location: "Controls / Mirrors"
-    manualPage: 250
+    location: "Front/Rear wheel / ABS sensor"
+    manualPage: null
     aliases:
-      - "kontrnakrętka lusterka"
+      - "śruba czujnika ABS"
+      - "wheel-speed sensor"
+      - "czujnik prędkości"
 
-  - part: "MIRROR ADAPTER BOLT"
+  - part: "FRONT-WHEEL COVER FORK"
+    torqueNm: 3
+    note: null
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M6 x 16"
+    tool: "Torx T30"
+    treatment: null
+    location: "Front wheel"
+    manualPage: null
+    aliases:
+      - "przednia osłona widelca"
+      - "osłona koła przedniego"
+      - "front-wheel cover"
+
+  - part: "ENGINE OIL DRAIN PLUG"
     torqueNm: 25
-    note: "Class 4.8 bolt"
-    source: "BMW F900GS ADV Manual"
-    fastener: "M10×14"
-    tool: "Wrench 17 mm"
+    note: "Replace sealing ring"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "Drain plug"
+    tool: "Hex socket"
     treatment: null
-    location: "Controls / Mirrors"
-    manualPage: 250
+    location: "Engine / Oil pan"
+    manualPage: null
     aliases:
-      - "adapter lusterka"
-      - "mocowanie lusterek"
+      - "śruba spustowa oleju"
+      - "oil drain plug"
+
+  - part: "OIL FILTER"
+    torqueNm: 11
+    note: "Lightly oil seal before installation"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "Oil filter cartridge"
+    tool: "Oil filter wrench"
+    treatment: null
+    location: "Engine / Oil filter"
+    manualPage: null
+    aliases:
+      - "filtr oleju"
+      - "oil filter"
+
+  - part: "SPARK PLUG"
+    torqueNm: 12
+    note: null
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M12 x 1.0"
+    tool: "Spark plug socket"
+    treatment: null
+    location: "Engine / Spark plug"
+    manualPage: null
+    aliases:
+      - "świeca zapłonowa"
+      - "spark plug"
+
+  - part: "CAM COVER BOLTS"
+    torqueNm: 10
+    note: "Tighten in criss-cross pattern"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M6 x 20"
+    tool: "Hex 6 mm"
+    treatment: null
+    location: "Engine / Cam cover"
+    manualPage: null
+    aliases:
+      - "śruby pokrywy zaworów"
+      - "cam cover bolts"
+      - "valve cover"
+
+  - part: "COOLANT DRAIN PLUG"
+    torqueNm: 10
+    note: null
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M6 x 16"
+    tool: "Hex 8 mm"
+    treatment: null
+    location: "Cooling system / Pump"
+    manualPage: null
+    aliases:
+      - "śruba spustowa płynu chłodzenia"
+      - "coolant drain plug"
+
+  - part: "SIDE STAND / LOCK NUT"
+    torqueNm: 38
+    note: "Lock nut M5: 5 Nm"
+    source: "BMW F900GS Adventure 2025 Service Manual (K82)"
+    fastener: "M10, M5"
+    tool: "Hex 8 mm"
+    treatment: "Fluid: Unirex S2"
+    location: "Side stand"
+    manualPage: null
+    aliases:
+      - "śruba stópki bocznej"
+      - "stópka boczna"
+      - "nakrętka kontrujaca stópki bocznej"
+      - "Side stand"
 
 maintenanceSpecs:
+  - section: "CHAIN"
+    name: "Chain slack"
+    value: "35–45"
+    unit: "mm"
+    note: "Bike on side stand, no load"
+    extra: null
+
   - section: "TIRES"
     name: "Front tire pressure (solo)"
     value: "2.2"
     unit: "bar"
     note: "Cold tyres"
     extra: null
-  - section: "TIRES"
-    name: "Front tire pressure (with load)"
-    value: "2.5"
-    unit: "bar"
-    note: "Cold tyres"
-    extra: null
+
   - section: "TIRES"
     name: "Rear tire pressure (solo)"
     value: "2.5"
     unit: "bar"
     note: "Cold tyres"
     extra: null
+
   - section: "TIRES"
-    name: "Rear tire pressure (with load)"
+    name: "Front tire pressure (with passenger / luggage)"
+    value: "2.5"
+    unit: "bar"
+    note: "Cold tyres"
+    extra: null
+
+  - section: "TIRES"
+    name: "Rear tire pressure (with passenger / luggage)"
     value: "2.9"
     unit: "bar"
     note: "Cold tyres"
     extra: null
-  - section: "CHAIN"
-    name: "Chain slack"
-    value: "30–40"
+
+  - section: "TIRES"
+    name: "Minimum tread depth"
+    value: "1.6"
     unit: "mm"
-    note: "Bike on side stand, no load, measure at tightest point"
+    note: "Legal minimum"
     extra: null
-  - section: "CHAIN"
-    name: "Chain wear limit"
-    value: "144.30"
-    unit: "mm"
-    note: "Measure across 9 pins"
-    extra: "Maximum value"
-  - section: "LIGHTING"
-    name: "Headlight – low / high beam"
-    value: "H7 12V 55W"
-    unit: null
-    note: null
-    extra: null
+
   - section: "ENGINE_OIL"
     name: "Specification"
-    value: "API SL, JASO MA2"
+    value: "SAE 5W-40, API SL or higher, JASO MA2"
     unit: null
-    note: null
+    note: "BMW Motorrad recommendation"
     extra: null
+
   - section: "ENGINE_OIL"
-    name: "Viscosity (recommended)"
-    value: "SAE 15W-50"
-    unit: null
-    note: null
+    name: "Capacity (with filter)"
+    value: "3.0"
+    unit: "L"
+    note: "Oil and filter change"
     extra: null
-  - section: "ENGINE_OIL"
-    name: "Viscosity (alternative)"
-    value: "SAE 10W-40"
-    unit: null
-    note: null
-    extra: null
+
   - section: "COOLANT"
     name: "Type"
-    value: "Ethylene-glycol based, no nitrites/amines/phosphates"
+    value: "Ethylene-glycol based coolant"
     unit: null
-    note: "Level between MIN–MAX"
+    note: "Premixed or 50:50"
     extra: null
+
   - section: "BRAKE_FLUID"
     name: "Fluid"
     value: "DOT 4"
     unit: null
-    note: "Level between MIN–MAX"
+    note: "Replace every 2 years"
     extra: null
+
   - section: "ADJUSTMENTS"
-    name: "Throttle free play"
-    value: "2–4"
+    name: "Valve clearances (cold)"
+    value: "Inlet: 0.13–0.23 | Exhaust: 0.30–0.40"
     unit: "mm"
-    note: null
-    extra: null
-  - section: "ADJUSTMENTS"
-    name: "Clutch lever free play"
-    value: "5–7"
-    unit: "mm"
-    note: null
+    note: "Check at service interval"
     extra: null
